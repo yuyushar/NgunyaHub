@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <style>
+        :root {
+            --c1: #f3e9dc;
+            --c2: #d96f32;
+            --c3: #c75d2c;
+            --c4: #f8b259;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--c1);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 350px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--c3);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: var(--c2);
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--c3);
+        }
+
+        .switch {
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+            color: var(--c2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="loginBox">
+        <h2>Login</h2>
+        <input type="text" id="loginUser" placeholder="Username" />
+        <input type="password" id="loginPass" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <p class="switch" onclick="showSignup()">Don't have an account? Sign up</p>
+    </div>
+
+    <div class="container" id="signupBox" style="display:none;">
+        <h2>Sign Up</h2>
+        <input type="email" id="email" placeholder="Email" />
+        <input type="text" id="newUser" placeholder="Username" />
+        <input type="password" id="newPass" placeholder="Password" />
+        <input type="password" id="confirmPass" placeholder="Confirm Password" />
+        <button onclick="signup()">Sign Up</button>
+        <p class="switch" onclick="showLogin()">Already have an account? Login</p>
+    </div>
+
+    <script>
+        function showSignup() {
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('signupBox').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('signupBox').style.display = 'none';
+            document.getElementById('loginBox').style.display = 'block';
+        }
+
+        function signup() {
+            let email = document.getElementById("email").value;
+            let user = document.getElementById("newUser").value;
+            let pass = document.getElementById("newPass").value;
+            let confirm = document.getElementById("confirmPass").value;
+
+            if (pass !== confirm) {
+                alert("Password doesn't match!");
+                return;
+            }
+
+            sessionStorage.setItem("email", email);
+            sessionStorage.setItem("username", user);
+            sessionStorage.setItem("password", pass);
+
+            alert("Account created! Please login.");
+            showLogin();
+        }
+
+        function login() {
+            let user = document.getElementById("loginUser").value;
+            let pass = document.getElementById("loginPass").value;
+
+            let storedUser = sessionStorage.getItem("username");
+            let storedPass = sessionStorage.getItem("password");
+
+            if (user === storedUser && pass === storedPass) {
+                window.location.href = "beranda.html";
+            } else {
+                alert("Invalid username or password.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
