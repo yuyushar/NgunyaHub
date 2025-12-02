@@ -2,14 +2,14 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
 :root {
-    --bg-cream: #F3E9DC;       /* Background Halaman Krem */
-    --container-white: #ffffff; /* Container Putih */
-    --primary-orange: #D96F32;  /* Oranye Tombol */
-    --header-rust: #C75D2C;     /* Oranye Gelap (Header & Toko) */
+    --bg-cream: #F3E9DC;       
+    --container-white: #ffffff; 
+    --primary-orange: #D96F32; 
+    --header-rust: #C75D2C;    
     --text-dark: #2d333b;
     --text-muted: #57606a;
     --border-color: #e1e4e8;
-    --link-blue: #89CFF0;       /* Warna Biru untuk Link Telepon */
+    --link-blue: #89CFF0;     
 }
 
 body {
@@ -18,40 +18,47 @@ body {
     min-height: 100vh;
 }
 
-/* === HEADER / NAVBAR STYLE === */
+/* === HEADER / NAVBAR === */
 .main-header {
-    background-color: var(--header-rust); /* Sesuai palet */
-    padding: 15px 0;
+    background-color: var(--header-rust);
+    padding: 25px 0;
     margin-bottom: 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     position: sticky; top: 0; z-index: 1000;
 }
 
 .header-container {
-    max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+    width: 100%;
+    padding: 0 40px; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 
 /* Tombol Kembali */
 .back-link {
-    color: white; font-size: 16px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: opacity 0.2s;
+    position: absolute;
+    left: 40px; 
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: opacity 0.2s;
 }
 .back-link:hover { opacity: 0.8; }
-.back-link i { font-size: 18px; }
 
-/* Search Bar */
-.search-bar {
-    display: flex; background: white; border-radius: 50px; padding: 5px 5px 5px 20px; width: 45%; max-width: 600px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+/* Judul Tengah */
+.header-title {
+    color: white;
+    font-size: 36px;     
+    font-weight: 400;     
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
 }
-.search-bar input { border: none; outline: none; flex: 1; font-size: 14px; background: transparent; color: #333; }
-.search-bar button {
-    background-color: #E88F4F; border: none; width: 35px; height: 35px; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s;
-}
-.search-bar button:hover { background-color: var(--primary-orange); }
-
-/* Icons Kanan */
-.header-icons { display: flex; gap: 25px; align-items: center; }
-.icon-link { color: white; font-size: 22px; text-decoration: none; transition: transform 0.2s; }
-.icon-link:hover { transform: scale(1.1); }
 
 /* === LAYOUT UTAMA === */
 .main-container {
@@ -60,28 +67,34 @@ body {
     display: flex;
     gap: 40px;
     align-items: flex-start;
-    padding: 0 20px 50px 20px; /* Padding bawah ditambah */
+    padding: 0 20px 50px 20px;
 }
 
 /* === SIDEBAR KIRI === */
 .profile-sidebar { width: 280px; flex-shrink: 0; }
+
 .avatar-container { position: relative; width: 260px; height: 260px; margin-bottom: 16px; }
 .avatar { 
     width: 100%; height: 100%; object-fit: cover; border-radius: 50%; 
-    border: 5px solid var(--container-white); box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    border: 5px solid var(--container-white); 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
 }
+
 .camera-icon {
     position: absolute; bottom: 15px; left: 15px;
     background: var(--primary-orange); color: white; padding: 10px;
     border-radius: 50%; cursor: pointer; border: 3px solid white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
 .names-wrapper { margin-bottom: 16px; }
 .names-wrapper h1 { font-size: 26px; font-weight: 700; color: var(--text-dark); }
 .username-handle { font-size: 16px; color: var(--text-muted); margin-top: 4px; }
+
 .btn-block { display: flex; justify-content: center; width: 100%; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 15px; }
 .btn-outline { background-color: var(--container-white); border: 1px solid #d0d7de; color: var(--text-dark); transition: 0.2s; }
 .btn-outline:hover { background-color: #f0f0f0; border-color: #bbb; }
+
 .input-label-sm { font-size: 13px; font-weight: 600; margin-top: 10px; display: block; color: var(--text-dark); }
 .form-control-sm { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
 
@@ -89,70 +102,69 @@ body {
 .right-column {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Susun ke bawah */
-    gap: 50px; /* JARAK ANTAR CONTAINER DIPERBESAR AGAR TIDAK TABRAKAN */
+    flex-direction: column;
+    gap: 30px; 
 }
 
-/* --- 1. CONTAINER INFORMASI UMUM (PUTIH) --- */
+/* 1. CONTAINER PUTIH */
 .profile-card-white {
     background-color: var(--container-white);
     padding: 35px;
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
+
 .content-header { border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 25px; }
 .content-header h3 { font-size: 20px; font-weight: 700; color: var(--primary-orange); }
 
-/* Styling Form */
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--text-dark); }
 .form-row { display: flex; gap: 20px; }
 .form-row .form-group { flex: 1; }
 
-/* Input Styles */
 input, textarea {
     width: 100%; padding: 12px 15px; border: 1px solid var(--border-color);
     border-radius: 8px; background-color: #fff; font-size: 14px; color: var(--text-dark); transition: all 0.2s;
 }
-/* Saat Disabled (View Mode) */
+
+/* Mode Baca (Disabled) */
 input:disabled, textarea:disabled {
     background-color: #FAFAFA; border: 1px solid transparent; color: #444; cursor: default;
 }
-/* Saat Fokus (Edit Mode) */
+/* Mode Edit (Focus) */
 input:not(:disabled):focus, textarea:not(:disabled):focus {
     outline: none; border-color: var(--primary-orange); box-shadow: 0 0 0 4px rgba(217, 111, 50, 0.1);
 }
 
-/* Tombol Aksi */
 .action-buttons { display: flex; gap: 12px; margin-top: 30px; }
 .btn-primary { background: var(--primary-orange); color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
 .btn-primary:hover { background: #b95a25; }
 .btn-cancel-custom { background: white; border: 1px solid #ddd; color: #555; padding: 10px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
 .btn-cancel-custom:hover { background: #f5f5f5; color: #333; }
 
-/* --- 2. CONTAINER BUKA TOKO (ORANYE) --- */
+/* 2. CONTAINER ORANYE (TOKO) */
 .merchant-invite-box {
-    background-color: var(--header-rust); /* Warna Oranye Gelap */
+    background-color: var(--header-rust);
     color: white;
     padding: 25px 30px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(199, 93, 44, 0.2);
     width: 100%;
 }
+
 .invite-header { font-size: 18px; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
 .merchant-invite-box p { font-size: 14px; margin-bottom: 15px; opacity: 0.95; }
 .contact-list { list-style: none; padding: 0; }
 .contact-list li {
-    font-size: 14px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.1); /* Transparan */
+    font-size: 14px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.1);
     padding: 12px 15px; border-radius: 10px; display: flex; align-items: center; gap: 12px;
 }
 .contact-list li i { font-size: 20px; }
 
-/* Link Nomor Telepon Biru */
+/* Link Telepon */
 .phone-link {
     margin-left: auto; font-family: monospace; font-size: 16px; font-weight: 700;
-    color: var(--link-blue); /* Biru Langit */
-    text-decoration: none; transition: 0.2s;
+    color: var(--link-blue); text-decoration: none; transition: 0.2s;
 }
 .phone-link:hover { color: #ffffff; text-decoration: underline; }
 
@@ -160,10 +172,11 @@ input:not(:disabled):focus, textarea:not(:disabled):focus {
 @media (max-width: 768px) {
     .main-container { flex-direction: column; align-items: center; }
     .profile-sidebar { width: 100%; text-align: center; margin-bottom: 20px; }
-    .right-column { width: 100%; gap: 30px; } /* Gap lebih kecil di HP */
+    .right-column { width: 100%; gap: 30px; }
     .form-row { flex-direction: column; gap: 0; }
-    .search-bar { display: none; }
-    .header-container { padding: 0 15px; }
+    .header-container { padding: 0 20px; }
+    .back-link { left: 20px; font-size: 14px; }
+    .header-title { font-size: 24px; }
     .contact-list li { flex-direction: column; align-items: flex-start; gap: 5px; }
     .phone-link { margin-left: 0; }
 }
