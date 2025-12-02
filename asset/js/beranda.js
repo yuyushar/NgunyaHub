@@ -1,9 +1,8 @@
 $(document).ready(function () {
 
-  // Tag filter
   $(".tag").click(function () {
     let filter = $(this).text().toLowerCase();
-    if ($(this).hasClass("reset-tag")) return; // Skip reset
+    if ($(this).hasClass("reset-tag")) return;
 
     $(".card").hide().filter(function () {
       let tags = $(this).data("tags");
@@ -16,7 +15,6 @@ $(document).ready(function () {
     $("#searchInput").val("");
   });
 
-  // Search
   $("#searchBtn").click(function () {
     let keyword = $("#searchInput").val().toLowerCase();
     $(".card").hide().filter(function () {
@@ -24,7 +22,6 @@ $(document).ready(function () {
     }).fadeIn(200);
   });
 
-  // Search on Enter key
   $("#searchInput").on("keyup", function(e){
     if(e.key === "Enter"){
       $("#searchBtn").click();
