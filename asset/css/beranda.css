@@ -67,7 +67,7 @@ header {
 .icons {
   display: flex;
   gap: 20px;
-  font-size: 10px;
+  font-size: 30px;
   cursor: pointer;
   align-items: center;
 }
