@@ -75,7 +75,6 @@ header {
 .icons i, .icons svg {
   background: rgba(255,255,255,0.15);
   padding: 10px;
-  margin: 10px 10px 10px;
   border-radius: 12px;
   transition: 0.25s;
   cursor: pointer;
