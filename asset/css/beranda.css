@@ -75,15 +75,23 @@ header {
   cursor: pointer;
   align-items: center;
 }
-
 .icons i {
+  background: rgba(255,255,255,0.15);
+  padding: 10px;
+  border-radius: 12px;
   transition: 0.25s;
 }
 
-.icons i:hover {
-  transform: scale(1.25);
-  opacity: 0.85;
+.icons {
+  display: flex;
+  gap: 10px;
 }
+
+.icons i:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.15);
+}
+
 
 
 .banner-img {
