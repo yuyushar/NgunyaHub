@@ -14,19 +14,43 @@
         }
 
         body {
+            background-image: url("https://i.ytimg.com/vi/QySdKc6OaGI/maxresdefault.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: top;
+
             font-family: Arial, sans-serif;
-            background: var(--c1);
             margin: 0;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
         }
 
         .container {
-            width: 350px;
+            width: 90%;
+            max-width: 350px;
+
             background: white;
             padding: 20px;
+
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -40,16 +64,28 @@
             width: 100%;
             padding: 10px;
             margin: 8px 0;
+
             border-radius: 5px;
             border: 1px solid #ccc;
+        }
+
+        .msg {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 5px;
+            min-height: 18px;
+            /* supaya area tidak meloncat-loncat */
         }
 
         button {
             width: 100%;
             padding: 10px;
+
             background: var(--c2);
             border: none;
             color: white;
+
             border-radius: 5px;
             cursor: pointer;
         }
@@ -64,48 +100,152 @@
             cursor: pointer;
             color: var(--c2);
         }
+
+        .pass-group {
+            position: relative;
+        }
+
+        .eye {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            backdrop-filter: blur(3px);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+
+            font-size: 12px;
+            color: white;
+            backdrop-filter: blur(3px);
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            input,
+            button {
+                padding: 8px;
+            }
+
+            .container {
+                margin: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+
+            input,
+            button {
+                font-size: 1.1rem;
+            }
+        }
     </style>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
 </head>
 
 <body>
-
+    <div class="logo">
+        <i data-feather="coffee"></i>
+        NgunyaHub
+    </div>
     <div class="container" id="loginBox">
         <h2>Login</h2>
         <input type="text" id="loginUser" placeholder="Username" />
-        <input type="password" id="loginPass" placeholder="Password" />
+        <div class="pass-group">
+            <input type="password" id="loginPass" placeholder="Password" />
+            <span class="eye" onclick="togglePassword('loginPass', this)">👁️</span>
+        </div>
+        <p id="loginMsg" class="msg"></p>
         <button onclick="login()">Login</button>
         <p class="switch" onclick="showSignup()">Don't have an account? Sign up</p>
     </div>
 
     <div class="container" id="signupBox" style="display:none;">
         <h2>Sign Up</h2>
-        <input type="email" id="email" placeholder="Email" />
+        <input type="email" id="email" placeholder="Email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+            title="Format harus seperti nama@domain.com" required />
         <input type="text" id="newUser" placeholder="Username" />
-        <input type="password" id="newPass" placeholder="Password" />
-        <input type="password" id="confirmPass" placeholder="Confirm Password" />
+        <div class="pass-group">
+            <input type="password" id="newPass" placeholder="Password" />
+            <span class="eye" onclick="togglePassword('newPass', this)">👁️</span>
+        </div>
+
+        <div class="pass-group">
+            <input type="password" id="confirmPass" placeholder="Confirm Password" />
+            <span class="eye" onclick="togglePassword('confirmPass', this)">👁️</span>
+        </div>
+        <p id="signupMsg" class="msg"></p>
         <button onclick="signup()">Sign Up</button>
         <p class="switch" onclick="showLogin()">Already have an account? Login</p>
+    </div>
+    <div class="footer">
+        © 2025 Kelompok 2 B
     </div>
 
     <script>
         function showSignup() {
+            clearSignupFields();
             document.getElementById('loginBox').style.display = 'none';
             document.getElementById('signupBox').style.display = 'block';
+        }
+        function clearSignupFields() {
+            document.getElementById("email").value = "";
+            document.getElementById("newUser").value = "";
+            document.getElementById("newPass").value = "";
+            document.getElementById("confirmPass").value = "";
         }
 
         function showLogin() {
             document.getElementById('signupBox').style.display = 'none';
             document.getElementById('loginBox').style.display = 'block';
         }
-
+        function clearLoginFields() {
+            document.getElementById("loginUser").value = "";
+            document.getElementById("loginPass").value = "";
+        }
         function signup() {
             let email = document.getElementById("email").value;
             let user = document.getElementById("newUser").value;
             let pass = document.getElementById("newPass").value;
             let confirm = document.getElementById("confirmPass").value;
-
+            let msg = document.getElementById("signupMsg");
+            msg.style.color = "red";
+            const emailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                msg.textContent = "Format email tidak valid!";
+                return;
+            }
             if (pass !== confirm) {
-                alert("Password doesn't match!");
+                msg.textContent = "Passwords do not match!";
                 return;
             }
 
@@ -113,23 +253,48 @@
             sessionStorage.setItem("username", user);
             sessionStorage.setItem("password", pass);
 
-            alert("Account created! Please login.");
-            showLogin();
+            msg.style.color = "green";
+            msg.textContent = "Akun berhasil dibuat! Silakan login.";
+
+            setTimeout(() => {
+                msg.textContent = "";
+                clearLoginFields();
+                showLogin();
+            }, 1000);
         }
 
         function login() {
             let user = document.getElementById("loginUser").value;
             let pass = document.getElementById("loginPass").value;
+            let msg = document.getElementById("loginMsg");
+            msg.style.color = "red";
 
             let storedUser = sessionStorage.getItem("username");
             let storedPass = sessionStorage.getItem("password");
 
             if (user === storedUser && pass === storedPass) {
-                window.location.href = "beranda.html";
+                msg.style.color = "green";
+                msg.textContent = "Login berhasil!";
+                setTimeout(() => {
+                    window.location.href = "beranda.html";
+                }, 500);
             } else {
-                alert("Invalid username or password.");
+                msg.style.color = "red";
+                msg.textContent = "Username atau password salah!";
             }
         }
+
+        function togglePassword(id, eyeIcon) {
+            let field = document.getElementById(id);
+            if (field.type === "password") {
+                field.type = "text";
+                eyeIcon.textContent = "🙈";
+            } else {
+                field.type = "password";
+                eyeIcon.textContent = "👁️";
+            }
+        }
+
     </script>
 
 </body>
