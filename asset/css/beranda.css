@@ -71,7 +71,6 @@ header {
   gap: 100px;
   font-size: 1.8rem;
   cursor: pointer;
-  align-items: center;
 }
 
 .icons i:hover {
