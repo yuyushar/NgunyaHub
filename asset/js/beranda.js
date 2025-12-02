@@ -1,9 +1,9 @@
 $(document).ready(function () {
+  feather.replace();
 
   $(".tag").click(function () {
     let filter = $(this).text().toLowerCase();
     if ($(this).hasClass("reset-tag")) return;
-
     $(".card").hide().filter(function () {
       let tags = $(this).data("tags");
       return tags.includes(filter);
@@ -28,4 +28,11 @@ $(document).ready(function () {
     }
   });
 
+  $(".favorite-btn i").click(function(){
+    $(this).toggleClass("favorited");
+  });
+
+  $("#themeToggle").click(function(){
+    $("body").toggleClass("dark-mode");
+  });
 });
