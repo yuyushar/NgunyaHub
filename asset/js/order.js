@@ -53,6 +53,10 @@ function formatRupiah(number) {
   return new Intl.NumberFormat("id-ID").format(number);
 }
 
+function formatRupiah(number) {
+  return new Intl.NumberFormat("id-ID").format(number);
+}
+
 function renderMenu(items) {
   $("#foodListOrder").empty();
   $("#drinkListOrder").empty();
@@ -60,37 +64,47 @@ function renderMenu(items) {
   items.forEach((item) => {
     let promoHtml = "";
     if (item.originalPrice) {
-      promoHtml = `<small class="text-decoration-line-through text-muted me-2">${formatRupiah(item.originalPrice)}</small> 
+      promoHtml = `<small class="text-decoration-line-through text-muted me-2">${formatRupiah(
+        item.originalPrice
+      )}</small> 
         <span class="promoBadgeOrder">Promo</span>`;
     }
 
     const cardHtml = `
-            <div class="menuCardOrder d-flex gap-4 align-items-center">
+            <div class="menuCardOrder d-flex align-items-center gap-3">
+                
+                <div class="flex-shrink-0">
+                    <img src="${item.image}" class="menuImgOrder">
+                </div>
+
                 <div class="flex-grow-1">
                     <h5 class="menuTitleOrder fw-bold mb-2">${item.name}</h5>
                     <div class="likeBadgeOrder mb-2"><i class="fas fa-heart"></i> ${
                       item.likes
                     } suka</div>
-                    <p class="menuDescOrder mb-3 text-truncate" style="white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${
-                      item.desc
-                    }</p>
+                    
+                    <p class="menuDescOrder mb-3 text-truncate" style="white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                        ${item.desc}
+                    </p>
+                    
                     <div class="priceWrapperOrder fw-bold">
                         ${promoHtml}
                         <div class="fs-4 mt-1">${formatRupiah(item.price)}</div>
                     </div>
                 </div>
-                <div class="d-flex flex-column align-items-center gap-3" style="width: 120px;">
-                    <img src="${item.image}" class="menuImgOrder">
-                    <div class="d-flex align-items-center justify-content-between w-100 px-1">
-                        <button class="qtyBtnOrder" onclick="changeQty(${
-                          item.id
-                        }, -1)">-</button>
-                        <span class="fw-bold fs-5" id="qty-${item.id}">${item.qty}</span>
-                        <button class="qtyBtnOrder active" onclick="changeQty(${
-                          item.id
-                        }, 1)">+</button>
-                    </div>
+
+                <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-2">
+                    <button class="qtyBtnOrder" onclick="changeQty(${
+                      item.id
+                    }, -1)">-</button>
+                    <span class="fw-bold fs-5 text-center" style="width: 25px;" id="qty-${
+                      item.id
+                    }">${item.qty}</span>
+                    <button class="qtyBtnOrder active" onclick="changeQty(${
+                      item.id
+                    }, 1)">+</button>
                 </div>
+
             </div>
         `;
 
@@ -130,23 +144,30 @@ $(document).ready(function () {
     $(this).toggleClass("collapsed");
   });
 
+  const searchBox = $(".search-box");
+  const searchInput = $(".search-input");
+  const searchBtn = $(".search-btn");
 
-  $("#toggleSearchBtn").click(function (e) {
-    e.preventDefault();
-    const wrapper = $("#searchWrapper");
-    const input = $("#headerSearchInput");
-
-    if (wrapper.hasClass("search-wrapper-visible")) {
-      wrapper.removeClass("search-wrapper-visible");
-      input.val(""); 
-      renderMenu(menuData); 
-    } else {
-      wrapper.addClass("search-wrapper-visible");
-      input.focus();
+  searchBtn.click(function (e) {
+    if (!searchBox.hasClass("active")) {
+      e.preventDefault();
+      searchBox.addClass("active");
+      searchInput.focus();
+    } else if (searchInput.val().trim() === "") {
+      e.preventDefault();
+      searchBox.removeClass("active");
     }
   });
 
-  $("#headerSearchInput").on("keyup", function () {
+  $(document).click(function (event) {
+    if (!$(event.target).closest(".search-box").length) {
+      if (searchInput.val().trim() === "") {
+        searchBox.removeClass("active");
+      }
+    }
+  });
+
+  searchInput.on("keyup", function () {
     const value = $(this).val().toLowerCase();
     const filtered = menuData.filter(
       (item) =>
