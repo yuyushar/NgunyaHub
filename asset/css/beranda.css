@@ -68,13 +68,18 @@ header {
 /* ICONS */
 .icons {
   display: flex;
-  gap: 10px;
+  gap: 30px;
   font-size: 1.8rem;
   cursor: pointer;
   align-items: center;
 }
 
 .icons i:hover {
+  transform: scale(2);
+  opacity: 0.85;
+}
+
+.icons 2:hover {
   transform: scale(2);
   opacity: 0.85;
 }
