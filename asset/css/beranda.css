@@ -68,7 +68,7 @@ header {
 /* ICONS */
 .icons {
   display: flex;
-  gap: 30px;
+  gap: 100px;
   font-size: 1.8rem;
   cursor: pointer;
   align-items: center;
