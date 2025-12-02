@@ -1,46 +1,207 @@
-body.dark-mode {
-  --text-dark: #fff;
-  --soft: #222222; 
-  --light: #333333;
-  --main: #F8B259;
-  --dark: #D96F32; 
+:root {
+  --main: #D96F32;
+  --dark: #C75D2C;
+  --light: #F8B259;
+  --soft: #F3E9DC;
+  --text-dark: #222;
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--soft);
+  margin: 0;
+  color: var(--text-dark);
+}
 
-body.dark-mode header {
+header {
+  width: 100%;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: var(--dark);
-  color: var(--text-dark);
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.25);
+  color: white;
 }
 
-body.dark-mode .logo {
-  color: var(--text-dark);
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
-body.dark-mode .icons i {
-  background: rgba(255,255,255,0.1);
+.search-bar {
+  flex: 1;
+  max-width: 520px;
+  margin: 0 30px;
+  display: flex;
+  border-radius: 45px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d4e5b2;
 }
 
-body.dark-mode .search-bar input {
-  background: #444;
+.search-bar input {
+  flex: 1;
+  padding: 12px 18px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  background: var(--main);
+  color: #fff;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.search-bar button:hover {
+  background: var(--dark);
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.icons i {
+  background: rgba(255,255,255,0.15);
+  padding: 10px;
+  margin: 10px 10px 10px;
+  border-radius: 12px;
+  transition: 0.25s;
+}
+
+.icons i:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.15);
+}
+
+.banner-img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.banner-text-fixed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: 800;
+  text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.tag {
+  background: var(--main);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.tag:hover {
+  background: var(--dark);
+}
+
+.reset-tag {
+  background: #444 !important;
+}
+
+.reset-tag:hover {
+  background: #222 !important;
+}
+
+.card {
+  background: var(--light);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.25s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card .info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card .subtags {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
   color: #fff;
 }
 
-body.dark-mode .card {
-  background: var(--light);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  border: 1px solid #555;
+.status.open {
+  background: #32b326;
 }
 
-body.dark-mode .tag, body.dark-mode .reset-tag {
-  background: #555 !important;
-  color: var(--text-dark);
+.status.closed {
+  background: #e53935;
 }
 
-body.dark-mode .tag:hover, body.dark-mode .reset-tag:hover {
-  background: #777 !important;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.tag.active-tag {
-  outline: 3px solid #32b326;
-  outline-offset: 1px;
+footer {
+  margin-top: 40px;
+  padding: 18px 20px;
+  text-align: center;
+  color: #fff;
+  background: var(--dark);
+  font-weight: 600;
 }
