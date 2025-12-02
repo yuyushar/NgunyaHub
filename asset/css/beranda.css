@@ -72,6 +72,11 @@ header {
   align-items: center;
 }
 
+.icons svg {
+  width: 28px;
+  height: 28px;
+}
+
 .icons i, .icons svg {
   background: rgba(255,255,255,0.15);
   padding: 10px;
