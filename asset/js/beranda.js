@@ -43,10 +43,12 @@ $(document).ready(function () {
     alert("Notifikasi!");
   });
   $(document).on("click", "#userIcon", function(){
+    href = "profile.html";
     alert("Profile!");
 
   });
   $(document).on("click", "#bagIcon", function(){
+    href = "order.html";
     alert("Keranjang!");
 
   });
