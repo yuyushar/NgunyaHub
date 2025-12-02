@@ -205,3 +205,18 @@ footer {
   background: var(--dark);
   font-weight: 600;
 }
+
+body.dark-mode {
+  background: #18181b;
+  color: #eee;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background: #222;
+  color: #ffb800;
+}
+
+.favorite-btn i.favorited {
+  color: #e53935 !important;
+}
