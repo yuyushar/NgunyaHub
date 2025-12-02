@@ -6,14 +6,12 @@
   --text-dark: #222;
 }
 
-
 body {
   font-family: 'Inter', sans-serif;
   background: var(--soft);
   margin: 0;
   color: var(--text-dark);
 }
-
 
 header {
   width: 100%;
@@ -33,7 +31,6 @@ header {
   align-items: center;
   gap: 30px;
 }
-
 
 .search-bar {
   flex: 1;
@@ -67,7 +64,6 @@ header {
   background: var(--dark);
 }
 
-
 .icons {
   display: flex;
   gap: 20px;
@@ -75,6 +71,7 @@ header {
   cursor: pointer;
   align-items: center;
 }
+
 .icons i {
   background: rgba(255,255,255,0.15);
   padding: 10px;
@@ -82,17 +79,10 @@ header {
   transition: 0.25s;
 }
 
-.icons {
-  display: flex;
-  gap: 10px;
-}
-
 .icons i:hover {
   background: rgba(255,255,255,0.3);
   transform: scale(1.15);
 }
-
-
 
 .banner-img {
   height: 400px;
@@ -126,7 +116,6 @@ header {
   background: rgba(0, 0, 0, 0.45);
 }
 
-
 .tag {
   background: var(--main);
   color: #fff;
@@ -148,7 +137,6 @@ header {
 .reset-tag:hover {
   background: #222 !important;
 }
-
 
 .card {
   background: var(--light);
@@ -202,13 +190,11 @@ header {
   background: #e53935;
 }
 
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-
 
 footer {
   margin-top: 40px;
