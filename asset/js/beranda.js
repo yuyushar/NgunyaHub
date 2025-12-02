@@ -43,9 +43,11 @@ $(document).ready(function () {
     alert("Notifikasi!");
   });
   $(document).on("click", "#userIcon", function(){
+    alert("Profile!");
     location.href = "profile.html";
   });
   $(document).on("click", "#bagIcon", function(){
+    alert("Keranjang!");
     location.href = "order.html";
   });
 });
