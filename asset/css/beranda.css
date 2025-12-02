@@ -72,15 +72,16 @@ header {
   align-items: center;
 }
 
-.icons i {
+.icons i, .icons svg {
   background: rgba(255,255,255,0.15);
   padding: 10px;
   margin: 10px 10px 10px;
   border-radius: 12px;
   transition: 0.25s;
+  cursor: pointer;
 }
 
-.icons i:hover {
+.icons i:hover, .icons svg:hover {
   background: rgba(255,255,255,0.3);
   transform: scale(1.15);
 }
@@ -217,6 +218,6 @@ body.dark-mode footer {
   color: #ffb800;
 }
 
-.favorite-btn i.favorited {
+.favorite-btn i.favorited, .favorite-btn svg.favorited {
   color: #e53935 !important;
 }
