@@ -41,10 +41,11 @@ $(document).ready(function () {
 
   $(document).on("click", "#bellIcon", function(){
     location.href = "order-list.html";
+    
   });
   $(document).on("click", "#userIcon", function(){
     location.href = "profile.html";
-
+    
   });
   $(document).on("click", "#bagIcon", function(){
     location.href = "order.html";
