@@ -43,11 +43,11 @@ $(document).ready(function () {
     alert("Notifikasi!");
   });
   $(document).on("click", "#userIcon", function(){
-    location.href = "./profile.html";
+    location.href = "/profile.html";
 
   });
   $(document).on("click", "#bagIcon", function(){
-    location.href = "./order.html";
+    location.href = "/order.html";
 
   });
 });
