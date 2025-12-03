@@ -71,8 +71,8 @@ header {
 }
 
 .icons i, .icons svg {
-  width: 32px;
-  height: 32px;
+  width: 64px;
+  height: 64px;
   padding: 16px;
   background: rgba(255,255,255,0.18);
   border-radius: 12px;
