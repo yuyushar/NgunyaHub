@@ -73,13 +73,13 @@ header {
 }
 
 .icons svg {
-  width: 28px;
-  height: 28px;
+  width: 50px;
+  height: 50px;
 }
 
 .icons i, .icons svg {
   background: rgba(255,255,255,0.15);
-  padding: 10px;
+  padding: 2px;
   transition: 0.25s;
   cursor: pointer;
 }
