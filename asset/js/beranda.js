@@ -40,7 +40,7 @@ $(document).ready(function () {
   });
 
   $(document).on("click", "#bellIcon", function(){
-    alert("Notifikasi!");
+    location.href = "order-list.html";
   });
   $(document).on("click", "#userIcon", function(){
     location.href = "profile.html";
