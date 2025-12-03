@@ -143,24 +143,32 @@
     }
 
     .btn-qty {
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid #333;
         font-weight: bold;
         color: black;
-        border-radius: 4px;
         background: #fff;
     }
-    .btn-qty.plus { background-color: #aaeebb; border: 1px solid #2ecc71;}
-    .btn-qty.minus { background-color: #ffcccc; border: 1px solid #e74c3c;}
+    .btn-qty.plus { 
+        background-color: var(--primary-orange); 
+        border: 2px solid var(--primary-orange);
+        border-radius: 6px;
+        color: white;
+    }
+
+    .btn-qty.minus { 
+        background-color: white; 
+        border: 2px solid var(--primary-orange);
+        border-radius: 6px;
+        color: var(--primary-orange)
+    }
 
     .qty-display {
-        width: 40px;
-        height: 35px;
-        border: 1px solid #333;
+        width: 32px;
+        height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -326,9 +334,9 @@
                   <div class="text-muted small">Rp. 10.000</div>
               </div>
               <div class="qty-control">
-                  <button class="btn-qty plus" onclick="updateQty('item1', 1, 20000)">+</button>
-                  <div class="qty-display" id="qty-item1">2</div>
                   <button class="btn-qty minus" onclick="updateQty('item1', -1, 20000)">-</button>
+                  <div class="qty-display" id="qty-item1">2</div>
+                  <button class="btn-qty plus" onclick="updateQty('item1', 1, 20000)">+</button>
               </div>
           </div>
 
@@ -338,78 +346,9 @@
                   <div class="text-muted small">Rp. 3.000</div>
               </div>
               <div class="qty-control">
-                  <button class="btn-qty plus" onclick="updateQty('item2', 1, 6000)">+</button>
-                  <div class="qty-display" id="qty-item2">2</div>
                   <button class="btn-qty minus" onclick="updateQty('item2', -1, 6000)">-</button>
-              </div>
-          </div>
-      </div>
-
-      <div class="form-section">
-          <div class="mb-3">
-              <label class="custom-label">Deskripsi tambahan:</label>
-              <textarea class="custom-input" rows="3"></textarea>
-          </div>
-
-          <div class="mb-4">
-              <label class="custom-label">Lokasi Pengiriman:</label>
-              <input type="text" class="custom-input" value="Jln. Grove Street, No.2">
-          </div>
-
-          <div class="mb-3">
-              <label class="custom-label">Metode Pembayaran:</label>
-              <div class="payment-options mt-2">
-                  <button class="btn-payment">CASH</button>
-                  <button class="btn-payment">QRIS</button>
-                  <button class="btn-payment">TRANSFER</button>
-              </div>
-          </div>
-      </div>
-      
-      <div class="footer-action">
-          <button class="btn-confirm">KONFIRMASI</button>
-          <div class="total-display">
-              Total: Rp <span id="grand-total" class="ms-1">26.000</span>
-          </div>
-      </div>
-  </section>
-
-  <section id="view-detail" class="d-none">
-      <header class="app-header text-center">
-          <div class="position-absolute start-0 top-0 p-3">
-             <a href="#" onclick="showList(event)" class="back-link">&lt; Kembali ke list order</a>
-          </div>
-          <h4 class="m-0 fw-normal">Detail Order</h4>
-      </header>
-
-      <div class="detail-info-bar">
-          <span id="detail-order-id">Order — 0002-02122025</span>
-          <span class="status-confirm">Belum Konfirmasi</span>
-          <span class="fw-bold text-decoration-underline" id="detail-resto-name">Bakso Cak Man</span>
-      </div>
-
-      <div id="detail-items-container">
-          <div class="detail-item">
-              <div class="item-info">
-                  <h6>Bakso banyak anak</h6>
-                  <div class="text-muted small">Rp. 10.000</div>
-              </div>
-              <div class="qty-control">
-                  <button class="btn-qty plus" onclick="updateQty('item1', 1, 20000)">+</button>
-                  <div class="qty-display" id="qty-item1">2</div>
-                  <button class="btn-qty minus" onclick="updateQty('item1', -1, 20000)">-</button>
-              </div>
-          </div>
-
-          <div class="detail-item">
-              <div class="item-info">
-                  <h6>Es Teh anget</h6>
-                  <div class="text-muted small">Rp. 3.000</div>
-              </div>
-              <div class="qty-control">
-                  <button class="btn-qty plus" onclick="updateQty('item2', 1, 6000)">+</button>
                   <div class="qty-display" id="qty-item2">2</div>
-                  <button class="btn-qty minus" onclick="updateQty('item2', -1, 6000)">-</button>
+                  <button class="btn-qty plus" onclick="updateQty('item2', 1, 6000)">+</button>
               </div>
           </div>
       </div>
@@ -444,15 +383,12 @@
   </section>
 
   <script>
-      // Initial Data for Demo
       let items = {
           'item1': { qty: 2, price: 10000 },
           'item2': { qty: 2, price: 3000 }
       };
 
-      // Switch Views
       function showDetail(id) {
-          // In a real app, fetch data based on ID here
           document.getElementById('view-list').classList.add('d-none');
           document.getElementById('view-detail').classList.remove('d-none');
           window.scrollTo(0,0);
@@ -464,12 +400,10 @@
           document.getElementById('view-list').classList.remove('d-none');
       }
 
-      // Format Currency
       function formatRupiah(num) {
           return new Intl.NumberFormat('id-ID').format(num);
       }
 
-      // Update Quantity & Total
       function updateQty(itemId, change, price) {
           const currentQty = items[itemId].qty;
           const newQty = currentQty + change;
@@ -489,7 +423,6 @@
           document.getElementById('grand-total').innerText = formatRupiah(total);
       }
 
-      // Initial calculation
       calculateTotal();
   </script>
 </body>
