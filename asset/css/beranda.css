@@ -66,22 +66,22 @@ header {
 
 .icons {
   display: flex;
-  gap: 20px;
-  font-size: 100px;
-  cursor: pointer;
+  gap: 24px;
   align-items: center;
 }
 
-.icons svg {
-  width: 28px;
-  height: 28px;
+.icons i, .icons svg {
+  width: 40px;
+  height: 40px;
+  padding: 16px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 12px;
+  transition: 0.25s;
 }
 
-.icons i, .icons svg {
-  background: rgba(255,255,255,0.15);
-  padding: 10px;
-  transition: 0.25s;
-  cursor: pointer;
+.icons svg, 
+.icons i {
+  font-size: 32px;
 }
 
 .icons i:hover, .icons svg:hover {
