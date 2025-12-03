@@ -11,13 +11,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
-
 <body>
   <header>
-    <div class="logo">
-      <i data-feather="coffee"></i>
-      NgunyaHub
-    </div>
+    <div class="logo"><i data-feather="coffee"></i>NgunyaHub</div>
     <div class="search-bar">
       <input id="searchInput" type="text" placeholder="Cari makanan atau restoran...">
       <button id="searchBtn"><i data-feather="search"></i></button>
@@ -37,7 +33,7 @@
         <img src="https://i.ytimg.com/vi/QySdKc6OaGI/maxresdefault.jpg" class="d-block w-100 banner-img">
       </div>
       <div class="carousel-item">
-        <img src="https://api.duniagames.co.id/optimize-image?url=https%3A%2F%2Fapi.duniagames.co.id%2Fapi%2Fcontent%2F%2Fupload%2Ffile%2F8537544401752928032.jpg&format=webp&width=736&signature=3f0fc499ce065c81412f7e9f1191093aa3184538b4f63705f93c0eba83383c6f" class="d-block w-100 banner-img"> 
+        <img src="https://api.duniagames.co.id/optimize-image?url=https%3A%2F%2Fapi.duniagames.co.id%2Fapi%2Fcontent%2F%2Fupload%2Ffile%2F8537544401752928032.jpg&format=webp&width=736&signature=3f0fc499ce065c81412f7e9f1191093aa3184538b4f63705f93c0eba83383c6f" class="d-block w-100 banner-img">
       </div>
       <div class="carousel-item">
         <img src="https://safebooru.org//samples/29/sample_dc3d90f7557190c3cb9b3fc4097524df1d241b00.jpg" class="d-block w-100 banner-img">
@@ -50,6 +46,7 @@
       <span class="carousel-control-next-icon"></span>
     </button>
   </div>
+
   <div class="container mt-4">
     <div class="tags mb-3 d-flex flex-wrap gap-2">
       <div class="tag reset-tag bg-secondary">Reset</div>
@@ -60,8 +57,9 @@
       <div class="tag">Kopi</div>
       <div class="tag">Dessert</div>
     </div>
+
     <div class="grid">
-      <div class="card" data-tags="sate tradisional open">
+      <div class="card" data-tags="sate tradisional open" data-link="detail-sate.html">
         <div class="favorite-btn"><i data-feather="heart"></i></div>
         <img src="https://img.inews.co.id/media/822/files/inews_new/2021/05/18/mencicipi_makanan_khas_indonesia.jpg">
         <div class="status open">OPEN</div>
@@ -73,7 +71,8 @@
           </div>
         </div>
       </div>
-      <div class="card" data-tags="bakso pedas open">
+
+      <div class="card" data-tags="bakso pedas open" data-link="detail-bakso.html">
         <div class="favorite-btn"><i data-feather="heart"></i></div>
         <img src="https://cahayameat.com/wp-content/uploads/2022/09/resep-masakan-bakso-babi-1200x900.jpg">
         <div class="status open">OPEN</div>
@@ -85,7 +84,8 @@
           </div>
         </div>
       </div>
-      <div class="card" data-tags="seafood kepiting closed">
+
+      <div class="card" data-tags="seafood kepiting closed" data-link="detail-seafood.html">
         <div class="favorite-btn"><i data-feather="heart"></i></div>
         <img src="https://images.tokopedia.net/blog-tokopedia-com/uploads/2021/06/makanan.jpg">
         <div class="status closed">CLOSED</div>
@@ -99,9 +99,8 @@
       </div>
     </div>
   </div>
-  <footer>
-    © 2025 NgunyaHub — Tempatnya Ngunyah Mengunyah 😹😹😹
-  </footer>
+
+  <footer>© 2025 NgunyaHub — Tempatnya Ngunyah Mengunyah 😹😹😹</footer>
 <script src="asset/js/beranda.js"></script>
 </body>
 </html>
