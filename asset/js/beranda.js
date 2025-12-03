@@ -31,13 +31,6 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on("click", ".card", function(e){
-  if ($(e.target).closest(".favorite-btn").length) return;  
-  let url = $(this).data("link");
-  if (url) location.href = "order.html" = url;
-});
-
-
   $(document).on("click", ".favorite-btn svg", function(){
     $(this).toggleClass("favorited");
   });
