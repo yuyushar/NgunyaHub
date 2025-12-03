@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NgunyaHub - Order</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 
     <header class="headerOrder position-relative">
         <div class="headerImageOrder">
-            <div class="overlayOrder d-flex flex-column justify-content-between p-4">
+            <div class="overlayOrder d-flex flex-column justify-content-between p-3 p-md-4 px-md-5">
                 <div class="d-flex justify-content-between align-items-start">
                     
                     <a href="beranda.html" class="iconBtnOrder text-decoration-none d-flex align-items-center justify-content-center">
@@ -24,7 +24,7 @@
                     
                     <div class="d-flex align-items-center gap-2">
                         <div class="search-box">
-                            <input type="text" class="search-input" id="headerSearchInput" placeholder="Cari makanan atau restoran...">
+                            <input type="text" class="search-input" id="headerSearchInput" placeholder="Cari makanan...">
                             <button class="search-btn">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -35,28 +35,28 @@
                     </div>
                 </div>
 
-                <h1 class="restoNameOrder text-end text-white text-uppercase fw-extra-bold mt-auto mb-2">RESTO SATE KHAS MADURA</h1>
+                <h1 class="restoNameOrder text-white text-uppercase fw-extra-bold mt-auto mb-2">RESTO SATE KHAS MADURA</h1>
             </div>
         </div>
         
         <div class="infoBarOrder d-flex text-white">
-            <div class="infoItemOrder flex-fill text-center p-3 border-end border-white border-opacity-25">
+            <div class="infoItemOrder flex-fill text-center p-2 p-md-3 border-end border-white border-opacity-25 small-text-mobile">
                 Tutup: 21:00
             </div>
-            <div class="infoItemOrder flex-fill text-center p-3 border-end border-white border-opacity-25">
-                10 Menit dari Lokasi Anda
+            <div class="infoItemOrder flex-fill text-center p-2 p-md-3 border-end border-white border-opacity-25 small-text-mobile">
+                10 Menit dari Lokasi
             </div>
-            <div class="infoItemOrder px-4 d-flex align-items-center justify-content-center status-label open">
+            <div class="infoItemOrder px-3 px-md-4 d-flex align-items-center justify-content-center status-label open small-text-mobile">
                 OPEN
             </div>
         </div>
     </header>
 
-    <main class="container-fluid pb-5 mb-5 mt-4 px-3">
+    <main class="container-fluid pb-5 mb-5 mt-3 mt-md-4 px-2 px-md-6 main-content">
         
-        <div class="categorySectionOrder mb-4 bg-white rounded shadow-sm overflow-hidden">
+        <div class="categorySectionOrder mb-3 mb-md-4 bg-white rounded shadow-sm overflow-hidden">
             <div class="categoryHeaderOrder p-3 d-flex align-items-center justify-content-between cursor-pointer" data-target="#foodListOrder">
-                <h3 class="h4 m-0 fw-bold"><i class="fas fa-utensils me-3"></i> Food</h3>
+                <h3 class="h5 h4-md m-0 fw-bold"><i class="fas fa-utensils me-3"></i> Food</h3>
                 <i class="fas fa-chevron-down transition-icon fs-5"></i>
             </div>
             <div id="foodListOrder" class="menuListOrder">
@@ -65,7 +65,7 @@
 
         <div class="categorySectionOrder mb-4 bg-white rounded shadow-sm overflow-hidden">
             <div class="categoryHeaderOrder p-3 d-flex align-items-center justify-content-between cursor-pointer" data-target="#drinkListOrder">
-                <h3 class="h4 m-0 fw-bold"><i class="fas fa-glass-martini-alt me-3"></i> Drinks</h3>
+                <h3 class="h5 h4-md m-0 fw-bold"><i class="fas fa-glass-martini-alt me-3"></i> Drinks</h3>
                 <i class="fas fa-chevron-down transition-icon fs-5"></i>
             </div>
             <div id="drinkListOrder" class="menuListOrder">
@@ -74,15 +74,15 @@
 
     </main>
 
-    <div class="fixed-bottom">
-        <div class="d-flex text-white text-center" style="height: 70px;">
+    <div class="fixed-bottom bg-white shadow-lg border-top">
+        <div class="d-flex text-white text-center" style="height: 65px;">
             
-            <a href="order-list.html" class="flex-grow-1 d-flex align-items-center justify-content-center fw-bold fs-4 text-decoration-none text-white" style="background-color: #C75D2C;">
+            <a href="order-list.html" class="flex-grow-1 d-flex align-items-center justify-content-center fw-bold fs-5 text-decoration-none text-white ripple-effect" style="background-color: #C75D2C;">
                 ORDER
             </a>
             
             <div class="flex-grow-1 d-flex align-items-center justify-content-center flex-column" style="background-color: #D96F32;">
-                <span class="small fw-normal">Total Pembayaran</span>
+                <span class="small fw-normal" style="font-size: 0.8rem;">Total Pembayaran</span>
                 <span class="fw-bold fs-5">Rp <span id="grandTotalOrder">0</span></span>
             </div>
         </div>

@@ -25,9 +25,9 @@ const menuData = [
   },
   {
     id: 3,
-    name: "Waltuh Water",
-    desc: "Air mineral pegunungan.",
-    price: 1000000,
+    name: "Air Mineral (600ml)",
+    desc: "Air mineral pegunungan segar.",
+    price: 5000,
     originalPrice: null,
     likes: 99,
     image:
@@ -53,10 +53,6 @@ function formatRupiah(number) {
   return new Intl.NumberFormat("id-ID").format(number);
 }
 
-function formatRupiah(number) {
-  return new Intl.NumberFormat("id-ID").format(number);
-}
-
 function renderMenu(items) {
   $("#foodListOrder").empty();
   $("#drinkListOrder").empty();
@@ -67,46 +63,52 @@ function renderMenu(items) {
       promoHtml = `<small class="text-decoration-line-through text-muted me-2">${formatRupiah(
         item.originalPrice
       )}</small> 
-        <span class="promoBadgeOrder">Promo</span>`;
+          <span class="promoBadgeOrder">Promo</span>`;
     }
 
     const cardHtml = `
-            <div class="menuCardOrder d-flex align-items-center gap-3">
-                
-                <div class="flex-shrink-0">
-                    <img src="${item.image}" class="menuImgOrder">
-                </div>
+          <div class="menuCardOrder d-flex align-items-center gap-3">
+              
+              <div class="flex-shrink-0">
+                  <img src="${item.image}" class="menuImgOrder" alt="${
+      item.name
+    }">
+              </div>
+  
+              <div class="flex-grow-1">
+                  <h5 class="menuTitleOrder fw-bold mb-1">${item.name}</h5>
+                  <div class="likeBadgeOrder mb-2"><i class="fas fa-heart"></i> ${
+                    item.likes
+                  } suka</div>
+                  
+                  <p class="menuDescOrder text-truncate mb-2" style="white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                      ${item.desc}
+                  </p>
+                  
+                  <div class="d-flex justify-content-between align-items-end">
+                      <div class="priceWrapperOrder fw-bold">
+                          ${promoHtml}
+                          <div class="fs-4 mt-1">Rp ${formatRupiah(
+                            item.price
+                          )}</div>
+                      </div>
 
-                <div class="flex-grow-1">
-                    <h5 class="menuTitleOrder fw-bold mb-2">${item.name}</h5>
-                    <div class="likeBadgeOrder mb-2"><i class="fas fa-heart"></i> ${
-                      item.likes
-                    } suka</div>
-                    
-                    <p class="menuDescOrder mb-3 text-truncate" style="white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                        ${item.desc}
-                    </p>
-                    
-                    <div class="priceWrapperOrder fw-bold">
-                        ${promoHtml}
-                        <div class="fs-4 mt-1">${formatRupiah(item.price)}</div>
-                    </div>
-                </div>
-
-                <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-2">
-                    <button class="qtyBtnOrder" onclick="changeQty(${
-                      item.id
-                    }, -1)">-</button>
-                    <span class="fw-bold fs-5 text-center" style="width: 25px;" id="qty-${
-                      item.id
-                    }">${item.qty}</span>
-                    <button class="qtyBtnOrder active" onclick="changeQty(${
-                      item.id
-                    }, 1)">+</button>
-                </div>
-
-            </div>
-        `;
+                      <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-2">
+                          <button class="qtyBtnOrder" onclick="changeQty(${
+                            item.id
+                          }, -1)">-</button>
+                          <span class="fw-bold fs-5 text-center" style="width: 25px;" id="qty-${
+                            item.id
+                          }">${item.qty}</span>
+                          <button class="qtyBtnOrder active" onclick="changeQty(${
+                            item.id
+                          }, 1)">+</button>
+                      </div>
+                  </div>
+              </div>
+  
+          </div>
+      `;
 
     if (item.category === "food") {
       $("#foodListOrder").append(cardHtml);
@@ -132,7 +134,10 @@ function calculateTotal() {
   menuData.forEach((item) => {
     total += item.price * item.qty;
   });
-  $("#grandTotalOrder").text(formatRupiah(total));
+  // Animasi angka
+  $("#grandTotalOrder").fadeOut(100, function () {
+    $(this).text(formatRupiah(total)).fadeIn(100);
+  });
 }
 
 $(document).ready(function () {
