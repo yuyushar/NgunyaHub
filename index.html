@@ -47,12 +47,13 @@
         .container {
             width: 90%;
             max-width: 350px;
-
             background: white;
-            padding: 20px;
-
+            padding: 25px 22px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10vh;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
         h2 {
@@ -62,11 +63,13 @@
 
         input {
             width: 100%;
-            padding: 10px;
+            padding: 10px 14px;
+            /* kiri 14px, kanan 14px */
             margin: 8px 0;
 
             border-radius: 5px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
         }
 
         .msg {
@@ -117,17 +120,31 @@
 
         .logo {
             position: absolute;
-            top: 20px;
+            top: 5px;  
             left: 50%;
             transform: translateX(-50%);
+            width: auto;
 
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 25px;
+            gap: 10px;
+
+            padding: 8px 16px;
+
+            font-size: 24px;
             font-weight: bold;
             color: white;
+
             backdrop-filter: blur(3px);
+        }
+
+        .logo-img {
+            width: 55px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-size: 26px;
         }
 
         .footer {
@@ -174,8 +191,8 @@
 
 <body>
     <div class="logo">
-        <i data-feather="coffee"></i>
-        NgunyaHub
+        <img src="asset/image/logo.png" class="logo-img" />
+        <span class="logo-text">NgunyaHub</span>
     </div>
     <div class="container" id="loginBox">
         <h2>Login</h2>
