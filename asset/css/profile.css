@@ -9,7 +9,7 @@
     --text-dark: #2d333b;
     --text-muted: #57606a;
     --border-color: #e1e4e8;
-    --link-blue: #89CFF0;     
+    --link-blue: #89CFF0;      
 }
 
 body {
@@ -29,17 +29,18 @@ body {
 
 .header-container {
     width: 100%;
-    padding: 0 40px; 
+    padding: 0 40px;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
+    min-height: 40px;
 }
 
-/* Tombol Kembali */
+/* Tombol Kembali (Mepet Kiri) */
 .back-link {
     position: absolute;
-    left: 40px; 
+    left: 40px;
     color: white;
     font-size: 16px;
     font-weight: 500;
@@ -49,11 +50,12 @@ body {
 }
 .back-link:hover { opacity: 0.8; }
 
-/* Judul Tengah */
+/* Judul Header (Poppins Regular) */
 .header-title {
     color: white;
-    font-size: 36px;     
-    font-weight: 400;     
+    font-family: 'Poppins', sans-serif; 
+    font-size: 36px;
+    font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin: 0;
@@ -78,14 +80,22 @@ body {
     width: 100%; height: 100%; object-fit: cover; border-radius: 50%; 
     border: 5px solid var(--container-white); 
     box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    background-color: #ddd; 
 }
 
+/* Ikon Kamera Bulat Sempurna */
 .camera-icon {
     position: absolute; bottom: 15px; left: 15px;
-    background: var(--primary-orange); color: white; padding: 10px;
-    border-radius: 50%; cursor: pointer; border: 3px solid white;
+    background: var(--primary-orange); color: white;
+    width: 45px; height: 45px; 
+    border-radius: 50%; 
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer; border: 3px solid white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
 }
+.camera-icon:hover { transform: scale(1.1); }
+.camera-icon i { font-size: 18px; }
 
 .names-wrapper { margin-bottom: 16px; }
 .names-wrapper h1 { font-size: 26px; font-weight: 700; color: var(--text-dark); }
@@ -98,12 +108,12 @@ body {
 .input-label-sm { font-size: 13px; font-weight: 600; margin-top: 10px; display: block; color: var(--text-dark); }
 .form-control-sm { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
 
-/* === KOLOM KANAN (WRAPPER) === */
+/* === KOLOM KANAN === */
 .right-column {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px; 
+    gap: 50px;
 }
 
 /* 1. CONTAINER PUTIH */
@@ -127,14 +137,8 @@ input, textarea {
     border-radius: 8px; background-color: #fff; font-size: 14px; color: var(--text-dark); transition: all 0.2s;
 }
 
-/* Mode Baca (Disabled) */
-input:disabled, textarea:disabled {
-    background-color: #FAFAFA; border: 1px solid transparent; color: #444; cursor: default;
-}
-/* Mode Edit (Focus) */
-input:not(:disabled):focus, textarea:not(:disabled):focus {
-    outline: none; border-color: var(--primary-orange); box-shadow: 0 0 0 4px rgba(217, 111, 50, 0.1);
-}
+input:disabled, textarea:disabled { background-color: #FAFAFA; border: 1px solid transparent; color: #444; cursor: default; }
+input:not(:disabled):focus, textarea:not(:disabled):focus { outline: none; border-color: var(--primary-orange); box-shadow: 0 0 0 4px rgba(217, 111, 50, 0.1); }
 
 .action-buttons { display: flex; gap: 12px; margin-top: 30px; }
 .btn-primary { background: var(--primary-orange); color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
@@ -160,23 +164,26 @@ input:not(:disabled):focus, textarea:not(:disabled):focus {
     padding: 12px 15px; border-radius: 10px; display: flex; align-items: center; gap: 12px;
 }
 .contact-list li i { font-size: 20px; }
-
-/* Link Telepon */
 .phone-link {
     margin-left: auto; font-family: monospace; font-size: 16px; font-weight: 700;
     color: var(--link-blue); text-decoration: none; transition: 0.2s;
 }
 .phone-link:hover { color: #ffffff; text-decoration: underline; }
 
-/* Responsive Mobile */
+/* === RESPONSIVE (HP) === */
 @media (max-width: 768px) {
-    .main-container { flex-direction: column; align-items: center; }
-    .profile-sidebar { width: 100%; text-align: center; margin-bottom: 20px; }
+    .header-container { flex-direction: column; align-items: flex-start; padding: 0 20px; gap: 10px; }
+    .back-link { position: static; font-size: 14px; margin-bottom: 5px; }
+    .header-title { position: static; transform: none; align-self: center; font-size: 28px; }
+    
+    .main-container { flex-direction: column; align-items: center; padding: 0 15px 40px 15px; }
+    .profile-sidebar { width: 100%; max-width: 300px; text-align: center; margin-bottom: 30px; }
+    .avatar-container { margin: 0 auto 15px auto; width: 200px; height: 200px; }
+    
     .right-column { width: 100%; gap: 30px; }
+    .profile-card-white, .merchant-invite-box { padding: 20px; }
+    
     .form-row { flex-direction: column; gap: 0; }
-    .header-container { padding: 0 20px; }
-    .back-link { left: 20px; font-size: 14px; }
-    .header-title { font-size: 24px; }
     .contact-list li { flex-direction: column; align-items: flex-start; gap: 5px; }
     .phone-link { margin-left: 0; }
 }

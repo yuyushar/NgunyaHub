@@ -27,23 +27,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- 2. LOAD DATA ---
     function loadData() {
         const storedData = JSON.parse(sessionStorage.getItem('ngunyahHubProfile'));
-        
+
+        // Also check login/signup stored username/email (set by index.html)
+        const loginUsername = sessionStorage.getItem('username'); 
+        const loginEmail = sessionStorage.getItem('email');
+
         let data = storedData || {
-            name: "Budi Santoso",
-            username: "@budi_ngunyah",
-            bio: "Halo! Saya suka memesan makanan pedas. NgunyahHub membantu saya menemukan kuliner terbaik.",
-            email: "budi@ngunyahhub.com",
-            phone: "081234567890",
-            address: "Jl. Mawar No. 12, Jakarta Selatan",
-            photo: "https://via.placeholder.com/300"
+            name: "Unknown",
+            username: "@Unknown",
+            bio: "Tolong isi bio kamu.",
+            email: "Unknown",
+            phone: "0123456789",
+            address: "Tolong isi alamat kamu.",
+            photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
         };
 
+        // If user logged in or signed up, prefer those values for username/email
+        if (loginUsername) {
+            // display username with leading @ but keep stored form without @ in login storage
+            data.username = loginUsername.startsWith('@') ? loginUsername : '@' + loginUsername;
+        }
+        if (loginEmail) {
+            data.email = loginEmail;
+        }
+
+        // Apply to UI
         displayName.textContent = data.name;
         displayUsername.textContent = data.username;
         displayProfilePic.src = data.photo;
 
         inputName.value = data.name;
-        inputUsernameHandle.value = data.username;
+        // Keep username input without the leading @ for editing convenience
+        inputUsernameHandle.value = data.username.startsWith('@') ? data.username.slice(1) : data.username;
         inputBio.value = data.bio;
         inputEmail.value = data.email;
         inputPhone.value = data.phone;
@@ -58,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Mode Edit
             nameTextGroup.style.display = 'none';
             nameInputGroup.style.display = 'block';
-            cameraIcon.style.display = 'block';
+            cameraIcon.style.display = 'flex'; 
             btnEditProfile.style.display = 'none';
             rightSideInputs.forEach(input => input.disabled = false);
             actionButtons.style.display = 'flex';
@@ -91,6 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
             photo: displayProfilePic.src
         };
         sessionStorage.setItem('ngunyahHubProfile', JSON.stringify(newData));
+        // Also update the shared login/session values so profile and login stay in sync
+        if (newData.username) {
+            // store username without leading @ for login logic used in index.html
+            sessionStorage.setItem('username', newData.username.startsWith('@') ? newData.username.slice(1) : newData.username);
+        }
+        if (newData.email) {
+            sessionStorage.setItem('email', newData.email);
+        }
         alert('Perubahan berhasil disimpan!');
         loadData();
         setEditMode(false);
