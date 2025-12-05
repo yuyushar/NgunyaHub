@@ -28,37 +28,45 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadData() {
         const storedData = JSON.parse(sessionStorage.getItem('ngunyahHubProfile'));
 
-        // Also check login/signup stored username/email (set by index.html)
+        // Cek login/signup dari sessionStorage (diset oleh index.html)
         const loginUsername = sessionStorage.getItem('username'); 
         const loginEmail = sessionStorage.getItem('email');
 
         let data = storedData || {
             name: "Unknown",
             username: "@Unknown",
-            bio: "Tolong isi bio kamu.",
-            email: "Unknown",
-            phone: "0123456789",
-            address: "Tolong isi alamat kamu.",
+            // Ubah default text menjadi string kosong agar Placeholder muncul
+            bio: "", 
+            email: "",
+            phone: "",
+            address: "",
             photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
         };
 
-        // If user logged in or signed up, prefer those values for username/email
+        // Pembersihan Data Lama: Jika data tersimpan masih berupa teks default lama, 
+        // kita kosongkan agar fitur placeholder berfungsi.
+        if (data.bio === "Tolong isi bio kamu.") data.bio = "";
+        if (data.email === "Tolong isi email kamu.") data.email = "";
+        if (data.phone === "Tolong isi nomor telepon kamu.") data.phone = "";
+        if (data.address === "Tolong isi alamat kamu.") data.address = "";
+
+        // Prioritaskan data login/signup jika ada
         if (loginUsername) {
-            // display username with leading @ but keep stored form without @ in login storage
             data.username = loginUsername.startsWith('@') ? loginUsername : '@' + loginUsername;
         }
         if (loginEmail) {
             data.email = loginEmail;
         }
 
-        // Apply to UI
+        // Terapkan ke UI
         displayName.textContent = data.name;
         displayUsername.textContent = data.username;
         displayProfilePic.src = data.photo;
 
         inputName.value = data.name;
-        // Keep username input without the leading @ for editing convenience
         inputUsernameHandle.value = data.username.startsWith('@') ? data.username.slice(1) : data.username;
+        
+        // Value input diset dari data. Jika data kosong (""), maka placeholder di HTML akan muncul otomatis
         inputBio.value = data.bio;
         inputEmail.value = data.email;
         inputPhone.value = data.phone;
@@ -106,9 +114,9 @@ document.addEventListener('DOMContentLoaded', function() {
             photo: displayProfilePic.src
         };
         sessionStorage.setItem('ngunyahHubProfile', JSON.stringify(newData));
-        // Also update the shared login/session values so profile and login stay in sync
+        
+        // Update juga session login agar sinkron
         if (newData.username) {
-            // store username without leading @ for login logic used in index.html
             sessionStorage.setItem('username', newData.username.startsWith('@') ? newData.username.slice(1) : newData.username);
         }
         if (newData.email) {
