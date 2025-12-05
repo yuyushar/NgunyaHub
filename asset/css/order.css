@@ -52,67 +52,12 @@ body {
     text-align: right;
 }
 
-.search-box {
-    position: relative;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    height: 45px;
-    width: 45px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.4s ease-in-out;
-    overflow: hidden;
+.new-search-wrapper {
+    border: 1px solid rgba(0,0,0,0.05);
 }
-
-.search-box.active {
-    width: 300px;
-    background: #fff;
-    border-color: #fff;
-}
-
-.search-input {
-    border: none;
-    background: none;
-    outline: none;
-    padding: 0;
-    color: #333;
-    font-size: 15px;
-    transition: 0.4s;
-    line-height: 45px;
-    width: 0;
-    opacity: 0;
-}
-
-.search-box.active .search-input {
-    padding: 0 15px;
-    width: calc(100% - 45px);
-    opacity: 1;
-}
-
-.search-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: transparent;
-    border: none;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.4s;
-    position: absolute;
-    right: 0;
-}
-
-.search-box.active .search-btn {
-    background: #D96F32;
-    color: #fff;
-    border-radius: 0 50px 50px 0;
-    width: 55px;
+.new-search-wrapper:focus-within {
+    border: 1px solid var(--primary-orange);
+    box-shadow: 0 0 0 0.2rem rgba(217, 111, 50, 0.25) !important;
 }
 
 .infoBarOrder {
@@ -157,13 +102,37 @@ body {
 
 .likeBadgeOrder {
     background-color: #FFF0F0;
-    color: #D32F2F;
+    color: #888;
     font-size: 0.8rem;
     padding: 3px 10px;
     border-radius: 6px;
-    border: 1px solid #FFCDD2;
+    border: 1px solid #eee;
     display: inline-block;
     font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.likeBadgeOrder i {
+    transition: color 0.2s;
+}
+
+.likeBadgeOrder.is-liked {
+    background-color: #FFF0F0;
+    color: #e74c3c;
+    border-color: #FFCDD2;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.heart-anim {
+    animation: heartBeat 0.4s ease-in-out;
 }
 
 .menuDescOrder {
@@ -247,14 +216,6 @@ body {
         padding: 8px !important;
     }
 
-    .search-box.active {
-        width: 100%;
-        position: absolute;
-        right: 0;
-        z-index: 10;
-        left: 0;
-    }
-
     .menuCardOrder {
         padding: 15px;
         gap: 15px !important;
@@ -290,4 +251,88 @@ body {
         font-size: 0.7rem;
         padding: 2px 6px;
     }
+}
+/* --- STICKY NAVBAR STYLE --- */
+
+/* Wrapper Navigasi Utama */
+.fixed-top-nav {
+    position: fixed; /* Kunci posisi di layar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Pastikan selalu di paling atas layer */
+    transition: all 0.3s ease-in-out; /* Efek transisi halus */
+    background: transparent; /* Awalnya transparan */
+}
+
+/* Class ini akan ditambahkan lewat JS saat di-scroll */
+.fixed-top-nav.scrolled {
+    background-color: var(--primary-orange); /* Berubah jadi oranye */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Kasih bayangan dikit */
+    padding-top: 10px !important; /* Sedikit dipadatkan */
+    padding-bottom: 10px !important;
+}
+
+/* Mengatur tombol saat di-scroll */
+.fixed-top-nav.scrolled .iconBtnOrder {
+    background: rgba(255,255,255,0.2);
+    border-color: transparent;
+}
+
+/* Judul Resto Kecil di Navbar */
+.sticky-resto-name {
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Memunculkan judul saat class 'visible' aktif */
+.sticky-resto-name.visible {
+    opacity: 1 !important;
+}
+
+/* Agar header image tidak tertutup nav fixed, tapi tetep aesthetic */
+.headerImageOrder {
+    margin-top: 0; 
+}
+/* --- STICKY NAVBAR STYLE --- */
+
+/* Wrapper Navigasi Utama */
+.fixed-top-nav {
+    position: fixed; /* Kunci posisi di layar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Pastikan selalu di paling atas layer */
+    transition: all 0.3s ease-in-out; /* Efek transisi halus */
+    background: transparent; /* Awalnya transparan */
+}
+
+/* Class ini akan ditambahkan lewat JS saat di-scroll */
+.fixed-top-nav.scrolled {
+    background-color: var(--primary-orange); /* Berubah jadi oranye */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Kasih bayangan dikit */
+    padding-top: 10px !important; /* Sedikit dipadatkan */
+    padding-bottom: 10px !important;
+}
+
+/* Mengatur tombol saat di-scroll */
+.fixed-top-nav.scrolled .iconBtnOrder {
+    background: rgba(255,255,255,0.2);
+    border-color: transparent;
+}
+
+/* Judul Resto Kecil di Navbar */
+.sticky-resto-name {
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Memunculkan judul saat class 'visible' aktif */
+.sticky-resto-name.visible {
+    opacity: 1 !important;
+}
+
+/* Agar header image tidak tertutup nav fixed, tapi tetep aesthetic */
+.headerImageOrder {
+    margin-top: 0; 
 }

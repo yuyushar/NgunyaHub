@@ -1,61 +1,302 @@
-const menuData = [
-  {
-    id: 1,
-    name: "Nasi Goreng Kambing Jumbo",
-    desc: "Nasi Goreng Kambing, ukuran 2-3 orang + telor, Baso Sapi, Sosis.",
-    price: 40000,
-    originalPrice: 50000,
-    likes: 7,
-    image:
-      "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=400&q=80",
-    category: "food",
-    qty: 0,
+const resto = {
+  "sate-madura": {
+    info: {
+      name: "RESTO SATE KHAS MADURA",
+      bgImage:
+        "https://images.unsplash.com/photo-1620088676099-c709b5838922?w=600&auto=format&fit=crop&q=60",
+      closeTime: "21:00",
+      distance: "10 Menit",
+      isOpen: true,
+    },
+    menu: [
+      {
+        id: 101,
+        category: "food",
+        name: "Nasi Goreng Sate Kambing Jumbo",
+        desc: "AKU CINTA NASI GORENGGGGGGGG, ini yang orang ucapkan setelah makan nasi goreng + sate kambing ini",
+        price: 40000,
+        originalPrice: 50000,
+        likes: 7,
+        image:
+          "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        id: 102,
+        category: "food",
+        name: "Sate Ayam Madura",
+        desc: "10 tusuk sate bumbu kacang + Lontong.",
+        price: 35000,
+        originalPrice: null,
+        likes: 12,
+        image:
+          "https://images.unsplash.com/photo-1645696301019-35adcc18fc21?w=600&auto=format&fit=crop&q=60",
+      },
+      {
+        id: 103,
+        category: "drink",
+        name: "Es Teh Manis",
+        desc: "Teh manis segar.",
+        price: 5000,
+        originalPrice: null,
+        likes: 100,
+        image:
+          "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        id: 104,
+        category: "drink",
+        name: "Es Jeruk Murni",
+        desc: "Jeruk peras asli tanpa gula biang.",
+        price: 8000,
+        originalPrice: null,
+        likes: 5,
+        image:
+          "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80",
+      },
+    ],
   },
-  {
-    id: 2,
-    name: "Sate Ayam Madura",
-    desc: "10 tusuk sate ayam bumbu kacang + Lontong.",
-    price: 35000,
-    originalPrice: null,
-    likes: 12,
-    image:
-      "https://images.unsplash.com/photo-1645696301019-35adcc18fc21?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2F0ZXxlbnwwfHwwfHx8MA%3D%3D",
-    category: "food",
-    qty: 0,
+  "bakso-cakman": {
+    info: {
+      name: "BAKSO CAK MAN",
+      bgImage:
+        "https://media.istockphoto.com/id/1146015549/id/foto/bakso-indonesian-meatball.jpg?s=612x612&w=0&k=20&c=eCJF5PaQfS1SP0-dZbqHbXgwDR5-gqzV_QLEKtGNeeU=",
+      closeTime: "22:00",
+      distance: "15 Menit",
+      isOpen: true,
+    },
+    menu: [
+      {
+        id: 201,
+        category: "food",
+        name: "Bakso Urat Besar",
+        desc: "1 Bakso urat besar + 3 bakso halus + mie.",
+        price: 25000,
+        originalPrice: null,
+        likes: 45,
+        image:
+          "https://media.istockphoto.com/id/1146015549/id/foto/bakso-indonesian-meatball.jpg?s=612x612&w=0&k=20&c=eCJF5PaQfS1SP0-dZbqHbXgwDR5-gqzV_QLEKtGNeeU=",
+      },
+      {
+        id: 202,
+        category: "food",
+        name: "Mie Ayam Bakso",
+        desc: "Puncak tahta makanan, MIE AYAMMMM. Mie ayam + bakso. bisa request bakso (Telur/Urat/Halus)",
+        price: 20000,
+        originalPrice: 25000,
+        likes: 30,
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnp-OTgS8v6JnRsGR65ETaJlsbYC4W4ALGNw&s",
+      },
+      {
+        id: 203,
+        category: "drink",
+        name: "Es Teh Manis",
+        desc: "Teh manis segar.",
+        price: 5000,
+        originalPrice: null,
+        likes: 100,
+        image:
+          "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        id: 204,
+        category: "drink",
+        name: "Es Jeruk Murni",
+        desc: "Jeruk peras asli tanpa gula biang.",
+        price: 8000,
+        originalPrice: null,
+        likes: 5,
+        image:
+          "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80",
+      },
+    ],
   },
-  {
-    id: 3,
-    name: "Air Mineral (600ml)",
-    desc: "Air mineral pegunungan segar.",
-    price: 5000,
-    originalPrice: null,
-    likes: 99,
-    image:
-      "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=400&q=80",
-    category: "drink",
-    qty: 0,
+  "seafood-maknyoss": {
+    info: {
+      name: "SEAFOOD MAK NYOSS",
+      bgImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKKPUXij7vJWGumTq393-esrSzw9xyXuU4Jg&s",
+      closeTime: "23:00",
+      distance: "25 Menit",
+      isOpen: false,
+    },
+    menu: [
+      {
+        id: 301,
+        category: "food",
+        name: "Kepiting Saos Padang",
+        desc: "1 Ekor kepiting telur saos padang pedas.",
+        price: 150000,
+        originalPrice: 180000,
+        likes: 88,
+        image:
+          "https://cnc-magazine.oramiland.com/parenting/original_images/Resep_Kepiting_Bumbu_Saus_Padang.jpg",
+      },
+      {
+        id: 302,
+        category: "food",
+        name: "Cumi Goreng Tepung",
+        desc: "CUMI CUMI GORENG PALING CRISPY DIKOTA INI! cumi goreng tepung + custom sauce(Pedas/Manis/Asam)",
+        price: 45000,
+        originalPrice: null,
+        likes: 50,
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKVSQPkZ_xvfI29DkLh7tVlAUOSVnOPxjbg&s",
+      },
+      {
+        id: 103,
+        category: "drink",
+        name: "Es Teh Manis",
+        desc: "Teh manis segar.",
+        price: 5000,
+        originalPrice: null,
+        likes: 100,
+        image:
+          "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        id: 104,
+        category: "drink",
+        name: "Es Jeruk Murni",
+        desc: "Jeruk peras asli tanpa gula biang.",
+        price: 8000,
+        originalPrice: null,
+        likes: 5,
+        image:
+          "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80",
+      },
+
+      {
+        id: 303,
+        category: "drink",
+        name: "Kelapa Muda Utuh",
+        desc: "Kelapa muda segar utuh.",
+        price: 15000,
+        originalPrice: null,
+        likes: 20,
+        image:
+          "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=400&q=80",
+      },
+    ],
   },
-  {
-    id: 4,
-    name: "Es Teh Manis",
-    desc: "Teh asli gula batu.",
-    price: 5000,
-    originalPrice: null,
-    likes: 45,
-    image:
-      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80",
-    category: "drink",
-    qty: 0,
-  },
-];
+};
+
+let menuData = [];
+let currentRestoInfo = {};
+const LIKE_SESSION_KEY = "ngunyahub_session_likes";
+const ORDER_HISTORY_KEY = "ngunyahub_order_history";
+
+function getRestoFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const restoKey = urlParams.get("resto");
+  if (!restoKey || !resto[restoKey]) {
+    return "sate-madura";
+  }
+  return restoKey;
+}
+
+function initPageData() {
+  const restoKey = getRestoFromUrl();
+  const data = resto[restoKey];
+
+  currentRestoInfo = data.info || {};
+  const rawMenu = data.menu || [];
+
+  let storedLikes = [];
+  try {
+    const rawLikes = sessionStorage.getItem(LIKE_SESSION_KEY);
+    if (rawLikes) {
+      storedLikes = JSON.parse(rawLikes);
+    }
+    if (!Array.isArray(storedLikes)) storedLikes = [];
+  } catch (e) {
+    storedLikes = [];
+  }
+
+  menuData = rawMenu.map((item) => {
+    const isLiked = storedLikes.includes(item.id);
+    return {
+      ...item,
+      qty: 0,
+      isLiked: isLiked,
+      currentLikes: isLiked ? item.likes + 1 : item.likes,
+    };
+  });
+
+  updateHeaderUI();
+}
+
+function updateHeaderUI() {
+  if (!currentRestoInfo.name) return;
+
+  $(".restoNameOrder").text(currentRestoInfo.name);
+  $(".sticky-resto-name").text(currentRestoInfo.name);
+
+  $(".headerImageOrder").css(
+    "background-image",
+    `url('${currentRestoInfo.bgImage}')`
+  );
+
+  const infoItems = $(".infoItemOrder");
+  if (infoItems.length > 0) {
+    $(infoItems[0]).text(`Tutup: ${currentRestoInfo.closeTime}`);
+    $(infoItems[1]).text(`${currentRestoInfo.distance} dari Lokasi`);
+  }
+
+  const statusLabel = $(".status-label");
+  const orderBtn = $(".fixed-bottom .d-flex .flex-grow-1").first();
+
+  if (currentRestoInfo.isOpen) {
+    statusLabel
+      .addClass("open")
+      .removeClass("closed")
+      .text("OPEN")
+      .css("background-color", "#2ecc71");
+    orderBtn
+      .text("ORDER")
+      .css({
+        "background-color": "#C75D2C",
+        cursor: "pointer",
+        opacity: "1",
+      })
+      .attr("onclick", "processOrder()");
+  } else {
+    statusLabel
+      .removeClass("open")
+      .addClass("closed")
+      .text("CLOSED")
+      .css("background-color", "#e74c3c");
+    orderBtn
+      .text("RESTO TUTUP")
+      .css({
+        "background-color": "#7f8c8d",
+        cursor: "not-allowed",
+        opacity: "0.8",
+      })
+      .removeAttr("onclick");
+  }
+}
 
 function formatRupiah(number) {
   return new Intl.NumberFormat("id-ID").format(number);
 }
 
 function renderMenu(items) {
+  if ($("#foodListOrder").length === 0) return;
+
   $("#foodListOrder").empty();
   $("#drinkListOrder").empty();
+
+  if (items.length === 0) {
+    $("#foodListOrder").append(
+      "<div class='p-3 text-muted text-center'>Menu tidak ditemukan</div>"
+    );
+    return;
+  }
+
+  const btnStyle = currentRestoInfo.isOpen
+    ? ""
+    : 'style="opacity: 0.3; cursor: not-allowed;" disabled';
 
   items.forEach((item) => {
     let promoHtml = "";
@@ -66,9 +307,11 @@ function renderMenu(items) {
           <span class="promoBadgeOrder">Promo</span>`;
     }
 
+    const likedClass = item.isLiked ? "is-liked" : "";
+    const heartIconClass = item.isLiked ? "fas" : "far";
+
     const cardHtml = `
           <div class="menuCardOrder d-flex align-items-center gap-3">
-              
               <div class="flex-shrink-0">
                   <img src="${item.image}" class="menuImgOrder" alt="${
       item.name
@@ -77,9 +320,17 @@ function renderMenu(items) {
   
               <div class="flex-grow-1">
                   <h5 class="menuTitleOrder fw-bold mb-1">${item.name}</h5>
-                  <div class="likeBadgeOrder mb-2"><i class="fas fa-heart"></i> ${
-                    item.likes
-                  } suka</div>
+                  
+                  <div class="likeBadgeOrder mb-2 ${likedClass}" onclick="toggleLike(${
+      item.id
+    })" id="like-btn-${item.id}">
+                    <i class="${heartIconClass} fa-heart" id="heart-icon-${
+      item.id
+    }"></i> 
+                    <span id="like-count-${item.id}">${
+      item.currentLikes
+    }</span> suka
+                  </div>
                   
                   <p class="menuDescOrder text-truncate mb-2" style="white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                       ${item.desc}
@@ -96,17 +347,16 @@ function renderMenu(items) {
                       <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-2">
                           <button class="qtyBtnOrder" onclick="changeQty(${
                             item.id
-                          }, -1)">-</button>
+                          }, -1)" ${btnStyle}>-</button>
                           <span class="fw-bold fs-5 text-center" style="width: 25px;" id="qty-${
                             item.id
                           }">${item.qty}</span>
                           <button class="qtyBtnOrder active" onclick="changeQty(${
                             item.id
-                          }, 1)">+</button>
+                          }, 1)" ${btnStyle}>+</button>
                       </div>
                   </div>
               </div>
-  
           </div>
       `;
 
@@ -116,9 +366,47 @@ function renderMenu(items) {
       $("#drinkListOrder").append(cardHtml);
     }
   });
+
+  $(".menuListOrder").show();
+}
+
+window.toggleLike = function (id) {
+  const item = menuData.find((i) => i.id === id);
+  if (item) {
+    item.isLiked = !item.isLiked;
+    item.isLiked ? item.currentLikes++ : item.currentLikes--;
+
+    const btnElement = $(`#like-btn-${id}`);
+    const iconElement = $(`#heart-icon-${id}`);
+    const countElement = $(`#like-count-${id}`);
+
+    countElement.text(item.currentLikes);
+
+    if (item.isLiked) {
+      btnElement.addClass("is-liked");
+      iconElement.removeClass("far").addClass("fas");
+      iconElement.addClass("heart-anim");
+      setTimeout(() => {
+        iconElement.removeClass("heart-anim");
+      }, 400);
+    } else {
+      btnElement.removeClass("is-liked");
+      iconElement.removeClass("fas").addClass("far");
+    }
+    saveLikesToSession();
+  }
+};
+
+function saveLikesToSession() {
+  const likedItemIds = menuData
+    .filter((item) => item.isLiked)
+    .map((item) => item.id);
+  sessionStorage.setItem(LIKE_SESSION_KEY, JSON.stringify(likedItemIds));
 }
 
 window.changeQty = function (id, change) {
+  if (!currentRestoInfo.isOpen) return;
+
   const item = menuData.find((i) => i.id === id);
   if (item) {
     if (item.qty + change >= 0) {
@@ -134,14 +422,76 @@ function calculateTotal() {
   menuData.forEach((item) => {
     total += item.price * item.qty;
   });
-  // Animasi angka
   $("#grandTotalOrder").fadeOut(100, function () {
     $(this).text(formatRupiah(total)).fadeIn(100);
   });
 }
 
-$(document).ready(function () {
+window.processOrder = function () {
+  if (!currentRestoInfo.isOpen) {
+    alert("Restoran Tutup, tidak bisa memesan.");
+    return;
+  }
+
+  const orderedItems = menuData.filter((item) => item.qty > 0);
+  if (orderedItems.length === 0) {
+    alert("Kamu belum memilih menu apapun!");
+    return;
+  }
+
+  const totalAmount = orderedItems.reduce(
+    (sum, item) => sum + item.price * item.qty,
+    0
+  );
+
+  const newOrder = {
+    orderId: "ORD-" + Date.now(),
+    date: new Date().toISOString(),
+    restoName: currentRestoInfo.name,
+    items: orderedItems,
+    total: totalAmount,
+    status: "Sedang Disiapkan",
+  };
+
+  let orderHistory = [];
+  try {
+    const storedHistory = sessionStorage.getItem(ORDER_HISTORY_KEY);
+    if (storedHistory) {
+      orderHistory = JSON.parse(storedHistory);
+    }
+    if (!Array.isArray(orderHistory)) orderHistory = [];
+  } catch (e) {
+    orderHistory = [];
+  }
+
+  orderHistory.unshift(newOrder);
+  sessionStorage.setItem(ORDER_HISTORY_KEY, JSON.stringify(orderHistory));
+
+  menuData.forEach((item) => (item.qty = 0));
   renderMenu(menuData);
+  calculateTotal();
+
+  window.location.href = "order-list.html";
+};
+
+$(document).ready(function () {
+  if (typeof $ === "undefined") {
+    alert("jQuery tidak terload! Cek koneksi internet atau link script.");
+    return;
+  }
+
+  initPageData();
+  renderMenu(menuData);
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $(".fixed-top-nav").addClass("scrolled");
+      $(".sticky-resto-name").addClass("visible");
+    } else {
+      $(".fixed-top-nav").removeClass("scrolled");
+      $(".sticky-resto-name").removeClass("visible");
+    }
+  });
 
   $(".categoryHeaderOrder").click(function () {
     const target = $(this).data("target");
@@ -149,30 +499,7 @@ $(document).ready(function () {
     $(this).toggleClass("collapsed");
   });
 
-  const searchBox = $(".search-box");
-  const searchInput = $(".search-input");
-  const searchBtn = $(".search-btn");
-
-  searchBtn.click(function (e) {
-    if (!searchBox.hasClass("active")) {
-      e.preventDefault();
-      searchBox.addClass("active");
-      searchInput.focus();
-    } else if (searchInput.val().trim() === "") {
-      e.preventDefault();
-      searchBox.removeClass("active");
-    }
-  });
-
-  $(document).click(function (event) {
-    if (!$(event.target).closest(".search-box").length) {
-      if (searchInput.val().trim() === "") {
-        searchBox.removeClass("active");
-      }
-    }
-  });
-
-  searchInput.on("keyup", function () {
+  $("#mainSearchInput").on("input", function () {
     const value = $(this).val().toLowerCase();
     const filtered = menuData.filter(
       (item) =>

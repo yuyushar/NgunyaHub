@@ -14,45 +14,47 @@
 <body>
 
     <header class="headerOrder position-relative">
-        <div class="headerImageOrder">
-            <div class="overlayOrder d-flex flex-column justify-content-between p-3 p-md-4 px-md-5">
-                <div class="d-flex justify-content-between align-items-start">
-                    
-                    <a href="beranda.html" class="iconBtnOrder text-decoration-none d-flex align-items-center justify-content-center">
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
-                    
-                    <div class="d-flex align-items-center gap-2">
-                        <div class="search-box">
-                            <input type="text" class="search-input" id="headerSearchInput" placeholder="Cari makanan...">
-                            <button class="search-btn">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                        <a href="profile.html" class="iconBtnOrder text-decoration-none d-flex align-items-center justify-content-center">
-                            <i class="fas fa-user"></i>
-                        </a>
-                    </div>
+        <div class="fixed-top-nav d-flex justify-content-between align-items-center p-3 p-md-4 px-md-5">
+            
+            <a href="beranda.html" class="iconBtnOrder text-decoration-none d-flex align-items-center justify-content-center">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            
+            <div class="sticky-resto-name text-white fw-bold text-truncate px-3" style="opacity: 0; transition: 0.3s; max-width: 60%;">
                 </div>
+            
+            <div class="d-flex align-items-center gap-2">
+                <a href="order-list.html" class="iconBtnOrder text-decoration-none d-flex align-items-center justify-content-center">
+                    <i class="fas fa-clipboard-list"></i>
+                </a>
 
-                <h1 class="restoNameOrder text-white text-uppercase fw-extra-bold mt-auto mb-2">RESTO SATE KHAS MADURA</h1>
+                <a href="profile.html" class="iconBtnOrder text-decoration-none d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="headerImageOrder">
+            <div class="overlayOrder d-flex flex-column justify-content-end p-3 p-md-4 px-md-5">
+                <h1 class="restoNameOrder text-white text-uppercase fw-extra-bold mb-2">RESTO SATE KHAS MADURA</h1>
             </div>
         </div>
         
         <div class="infoBarOrder d-flex text-white">
-            <div class="infoItemOrder flex-fill text-center p-2 p-md-3 border-end border-white border-opacity-25 small-text-mobile">
-                Tutup: 21:00
-            </div>
-            <div class="infoItemOrder flex-fill text-center p-2 p-md-3 border-end border-white border-opacity-25 small-text-mobile">
-                10 Menit dari Lokasi
-            </div>
-            <div class="infoItemOrder px-3 px-md-4 d-flex align-items-center justify-content-center status-label open small-text-mobile">
-                OPEN
-            </div>
+            <div class="infoItemOrder flex-fill text-center p-2 p-md-3 border-end border-white border-opacity-25 small-text-mobile">Tutup: 21:00</div>
+            <div class="infoItemOrder flex-fill text-center p-2 p-md-3 border-end border-white border-opacity-25 small-text-mobile">10 Menit dari Lokasi</div>
+            <div class="infoItemOrder px-3 px-md-4 d-flex align-items-center justify-content-center status-label open small-text-mobile">OPEN</div>
         </div>
     </header>
 
-    <main class="container-fluid pb-5 mb-5 mt-3 mt-md-4 px-2 px-md-6 main-content">
+    <div class="container-fluid mt-3 px-2 px-md-6">
+        <div class="new-search-wrapper bg-white rounded shadow-sm p-2 d-flex align-items-center">
+            <i class="fas fa-search text-muted ms-2"></i>
+            <input type="text" class="form-control border-0 shadow-none" id="mainSearchInput" placeholder="Cari makanan atau minuman...">
+        </div>
+    </div>
+
+    <main class="container-fluid pb-5 mb-5 mt-3 px-2 px-md-6 main-content">
         
         <div class="categorySectionOrder mb-3 mb-md-4 bg-white rounded shadow-sm overflow-hidden">
             <div class="categoryHeaderOrder p-3 d-flex align-items-center justify-content-between cursor-pointer" data-target="#foodListOrder">
@@ -60,7 +62,7 @@
                 <i class="fas fa-chevron-down transition-icon fs-5"></i>
             </div>
             <div id="foodListOrder" class="menuListOrder">
-                </div>
+            </div>
         </div>
 
         <div class="categorySectionOrder mb-4 bg-white rounded shadow-sm overflow-hidden">
@@ -69,7 +71,7 @@
                 <i class="fas fa-chevron-down transition-icon fs-5"></i>
             </div>
             <div id="drinkListOrder" class="menuListOrder">
-                </div>
+            </div>
         </div>
 
     </main>
@@ -77,9 +79,9 @@
     <div class="fixed-bottom bg-white shadow-lg border-top">
         <div class="d-flex text-white text-center" style="height: 65px;">
             
-            <a href="order-list.html" class="flex-grow-1 d-flex align-items-center justify-content-center fw-bold fs-5 text-decoration-none text-white ripple-effect" style="background-color: #C75D2C;">
+            <div onclick="processOrder()" class="flex-grow-1 d-flex align-items-center justify-content-center fw-bold fs-5 text-decoration-none text-white ripple-effect cursor-pointer" style="background-color: #C75D2C; cursor: pointer;">
                 ORDER
-            </a>
+            </div>
             
             <div class="flex-grow-1 d-flex align-items-center justify-content-center flex-column" style="background-color: #D96F32;">
                 <span class="small fw-normal" style="font-size: 0.8rem;">Total Pembayaran</span>

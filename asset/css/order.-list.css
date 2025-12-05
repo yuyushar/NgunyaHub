@@ -1,58 +1,220 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
 :root {
-    --bg-cream: #F3E9DC;       
-    --container-white: #ffffff; 
-    --primary-orange: #D96F32; 
-    --header-rust: #C75D2C;    
-    --text-dark: #2d333b;
-    --text-muted: #57606a;
-    --border-color: #e1e4e8;
-    --link-blue: #89CFF0;     
+    --bg-cream: #F3E9DC;
+    --primary-orange: #D96F32;
+    --deep-rust: #C75D2C;
+    --pastel-orange: #F8B259;
+    --text-dark: #333;
+    --status-green: #2ecc71;
+    --status-blue: #3498db;
+    --status-gray: #95a5a6;
 }
 
 body {
     background-color: var(--bg-cream);
-    color: var(--text-dark);
-    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 80px; /* Space for footer */
 }
 
-/* === HEADER / NAVBAR === */
-.main-header {
-    background-color: var(--header-rust);
-    padding: 25px 0;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    position: sticky; top: 0; z-index: 1000;
-}
-
-.header-container {
-    width: 100%;
-    padding: 0 40px; 
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
+/* Header */
+.app-header {
+    background-color: var(--primary-orange);
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(217, 111, 50, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .back-link {
-    position: absolute;
-    left: 40px; 
     color: white;
-    font-size: 16px;
-    font-weight: 500;
     text-decoration: none;
-    display: flex; align-items: center; gap: 8px;
-    transition: opacity 0.2s;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: 0.2s;
 }
-.back-link:hover { opacity: 0.8; }
+.back-link:hover { opacity: 1; transform: translateX(-3px); display: inline-block; }
 
-.header-title {
-    color: white;
-    font-size: 36px;     
-    font-weight: 400;     
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 0;
-    line-height: 1;
+/* Card History */
+.order-card {
+    background: white;
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    position: relative;
 }
+
+.order-card:active { transform: scale(0.98); }
+
+.card-header-custom {
+    padding: 12px 15px;
+    border-bottom: 1px dashed #eee;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-id { font-size: 0.85rem; color: #888; letter-spacing: 0.5px; }
+.resto-name { font-weight: 700; color: var(--deep-rust); }
+
+.card-body-custom { padding: 15px; }
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.more-items {
+    color: var(--primary-orange);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 8px;
+    display: block;
+}
+
+.status-text {
+    text-align: right;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+.status-pending { color: var(--status-gray); }
+.status-process { color: var(--status-blue); }
+
+/* Detail View Components */
+.detail-info-bar {
+    background: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-item {
+    background: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item-info h6 { margin: 0; font-weight: 600; color: var(--text-dark); font-size: 1rem; }
+.item-price { color: var(--deep-rust); font-weight: 500; font-size: 0.9rem; }
+
+/* Qty Buttons */
+.qty-control { display: flex; align-items: center; gap: 10px; }
+
+.btn-qty {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-qty.minus { background: #f0f0f0; color: #888; }
+.btn-qty.plus { background: var(--primary-orange); color: white; }
+.qty-display { font-weight: 600; font-size: 1rem; min-width: 20px; text-align: center; }
+
+/* Form & Payment */
+.form-section { padding: 20px; }
+
+.custom-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #555;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.custom-input {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+.custom-input:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 3px rgba(217, 111, 50, 0.1);
+}
+
+.payment-options { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
+
+.btn-payment {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #777;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.btn-payment.active {
+    background-color: var(--deep-rust);
+    color: white;
+    border-color: var(--deep-rust);
+    box-shadow: 0 4px 6px rgba(199, 93, 44, 0.2);
+}
+
+/* Footer Action */
+.footer-action {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: white;
+    display: flex;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    z-index: 1050;
+}
+
+.total-display {
+    flex: 1;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.btn-confirm {
+    flex: 1;
+    background-color: var(--primary-orange);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+.btn-confirm:active { filter: brightness(0.9); }
+
+/* Utilities */
+.text-orange { color: var(--primary-orange); }
+.empty-state { padding: 40px 20px; text-align: center; color: #999; }
+.empty-icon { font-size: 4rem; margin-bottom: 15px; color: #ddd; }
