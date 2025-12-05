@@ -4,74 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NgunyaHub - Food Directory</title>
-
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- CSS terpisah -->
-  <link rel="stylesheet" href="asset/css/beranda.css">
-
+  <link href="asset/css/beranda.css" rel="stylesheet">
+  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
+  <script src="asset/js/beranda.js"></script>
 </head>
 
 <body>
 
   <header>
-    <button class="mobile-search-trigger" id="mobileSearchBtn">
-      <i data-feather="search"></i>
-    </button>
-
+    <button class="mobile-search-trigger" id="mobileSearchBtn"><i data-feather="search"></i></button>
     <a href="beranda.html" class="logo">
-      <img src="asset/image/logo.png" alt="Logo">
-      <span class="logo-text">NgunyaHub</span>
+        <img src="asset/image/logo.png" alt="Logo"> <span class="logo-text">NgunyaHub</span>
     </a>
-
     <div class="search-bar" id="searchContainer">
       <input id="searchInput" type="text" placeholder="Cari makanan atau restoran...">
-
-      <button class="close-search-btn" id="closeSearchBtn" type="button">
-        <i data-feather="x"></i>
-      </button>
-
-      <button class="search-submit" id="searchBtn">
-        <i data-feather="search"></i>
-      </button>
+      <button class="close-search-btn" id="closeSearchBtn" type="button"><i data-feather="x"></i></button>
+      <button class="search-submit" id="searchBtn"><i data-feather="search"></i></button>
     </div>
-
     <div class="icons">
-      <a href="order-list.html">
-        <i data-feather="shopping-bag"></i>
-      </a>
-      <a href="profile.html">
-        <i data-feather="user"></i>
-      </a>
+      <a href="order-list.html"><i data-feather="shopping-bag"></i></a>
+      <a href="profile.html"><i data-feather="user"></i></a>
     </div>
   </header>
 
   <div id="bannerSlider" class="carousel slide" data-bs-ride="carousel">
     <div class="banner-text-fixed">RECOMMENDED!</div>
-
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://i.ytimg.com/vi/QySdKc6OaGI/maxresdefault.jpg" class="d-block w-100 banner-img">
-      </div>
-      <div class="carousel-item">
-        <img src="https://api.duniagames.co.id/optimize-image?url=https%3A%2F%2Fapi.duniagames.co.id%2Fapi%2Fcontent%2F%2Fupload%2Ffile%2F8537544401752928032.jpg&format=webp&width=736" class="d-block w-100 banner-img">
-      </div>
-      <div class="carousel-item">
-        <img src="https://safebooru.org//samples/29/sample_dc3d90f7557190c3cb9b3fc4097524df1d241b00.jpg?6115699" class="d-block w-100 banner-img">
-      </div>
+      <div class="carousel-item active"><img src="https://i.ytimg.com/vi/QySdKc6OaGI/maxresdefault.jpg" class="d-block w-100 banner-img"></div>
+      <div class="carousel-item"><img src="https://api.duniagames.co.id/optimize-image?url=https%3A%2F%2Fapi.duniagames.co.id%2Fapi%2Fcontent%2F%2Fupload%2Ffile%2F8537544401752928032.jpg&format=webp&width=736&signature=3f0fc499ce065c81412f7e9f1191093aa3184538b4f63705f93c0eba83383c6f" class="d-block w-100 banner-img"></div>
+      <div class="carousel-item"><img src="https://safebooru.org//samples/29/sample_dc3d90f7557190c3cb9b3fc4097524df1d241b00.jpg?6115699" class="d-block w-100 banner-img"></div>
     </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#bannerSlider" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#bannerSlider" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#bannerSlider" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#bannerSlider" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
   </div>
 
   <div class="container mt-4">
@@ -86,14 +56,14 @@
     </div>
 
     <div class="grid">
-      <div class="card" data-tags="sate tradisional open">
-        <img src="https://img.inews.co.id/media/822/files/inews_new/2021/05/18/mencicipi_makanan_khas_indonesia.jpg">
+      <a href="order.html" class="card" data-tags="sate tradisional open">
+        <img src="https://img.inews.co.id/media/822/files/inews_new/2021/05/18/mencicipi_makanan_khas_indonesia.jpg" alt="Sate Madura">
         <div class="status open">OPEN</div>
-        <div class="info p-3">
+        <div class="info">
           <h3>Resto Sate Khas Madura</h3>
-          <div class="subtags d-flex gap-2 flex-wrap">
-            <div class="subtag badge bg-success">Sate</div>
-            <div class="subtag badge bg-warning text-dark">Tradisional</div>
+          <div class="subtags">
+            <span class="subtag badge bg-success">Sate</span>
+            <span class="subtag badge bg-warning text-dark">Tradisional</span>
           </div>
           <div class="like-section">
             <div class="like-btn">
@@ -102,16 +72,16 @@
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="card" data-tags="bakso pedas open">
-        <img src="https://cahayameat.com/wp-content/uploads/2022/09/resep-masakan-bakso-babi-1200x900.jpg">
+      <a href="order.html" class="card" data-tags="bakso pedas open">
+        <img src="https://cahayameat.com/wp-content/uploads/2022/09/resep-masakan-bakso-babi-1200x900.jpg" alt="Bakso">
         <div class="status open">OPEN</div>
-        <div class="info p-3">
+        <div class="info">
           <h3>Bakso Cak Man</h3>
-          <div class="subtags d-flex gap-2 flex-wrap">
-            <div class="subtag badge bg-primary">Bakso</div>
-            <div class="subtag badge bg-danger">Pedas</div>
+          <div class="subtags">
+            <span class="subtag badge bg-primary">Bakso</span>
+            <span class="subtag badge bg-danger">Pedas</span>
           </div>
           <div class="like-section">
             <div class="like-btn">
@@ -120,16 +90,16 @@
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="card" data-tags="seafood kepiting closed">
-        <img src="https://images.tokopedia.net/blog-tokopedia-com/uploads/2021/06/makanan.jpg">
+      <a href="order.html" class="card" data-tags="seafood kepiting closed">
+        <img src="https://images.tokopedia.net/blog-tokopedia-com/uploads/2021/06/makanan.jpg" alt="Seafood">
         <div class="status closed">CLOSED</div>
-        <div class="info p-3">
+        <div class="info">
           <h3>Seafood Mak Nyoss</h3>
-          <div class="subtags d-flex gap-2 flex-wrap">
-            <div class="subtag badge bg-info text-dark">Seafood</div>
-            <div class="subtag badge bg-dark">Kepiting</div>
+          <div class="subtags">
+            <span class="subtag badge bg-info text-dark">Seafood</span>
+            <span class="subtag badge bg-dark">Kepiting</span>
           </div>
           <div class="like-section">
             <div class="like-btn">
@@ -138,23 +108,15 @@
             </div>
           </div>
         </div>
+      </a>
+
+      <div class="no-result">
+        <i data-feather="frown"></i>
+        <h3>Pencarian tidak ditemukan...</h3>
       </div>
-
     </div>
   </div>
 
-  <div class="grid">
-    <div class="no-result">
-      <i data-feather="frown"></i>
-      <h3>Pencarian tidak ditemukan...</h3>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 NgunyaHub — Tempatnya Ngunyah Mengunyah 😹😹😹
-  </footer>
-
-  <script src="asset/js/beranda.js"></script>
-
+  <footer>© 2025 NgunyaHub — Tempatnya Ngunyah Mengunyah</footer>
 </body>
 </html>
