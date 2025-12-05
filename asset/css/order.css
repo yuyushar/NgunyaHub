@@ -19,6 +19,7 @@ body {
     background-image: url('https://images.unsplash.com/photo-1620088676099-c709b5838922?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2F0ZXxlbnwwfHwwfHx8MA%3D%3D');
     background-size: cover;
     background-position: center;
+    margin-top: 0;
 }
 
 .overlayOrder {
@@ -252,87 +253,34 @@ body {
         padding: 2px 6px;
     }
 }
-/* --- STICKY NAVBAR STYLE --- */
 
-/* Wrapper Navigasi Utama */
 .fixed-top-nav {
-    position: fixed; /* Kunci posisi di layar */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Pastikan selalu di paling atas layer */
-    transition: all 0.3s ease-in-out; /* Efek transisi halus */
-    background: transparent; /* Awalnya transparan */
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    background: transparent;
 }
 
-/* Class ini akan ditambahkan lewat JS saat di-scroll */
 .fixed-top-nav.scrolled {
-    background-color: var(--primary-orange); /* Berubah jadi oranye */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Kasih bayangan dikit */
-    padding-top: 10px !important; /* Sedikit dipadatkan */
+    background-color: var(--primary-orange);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding-top: 10px !important;
     padding-bottom: 10px !important;
 }
 
-/* Mengatur tombol saat di-scroll */
 .fixed-top-nav.scrolled .iconBtnOrder {
     background: rgba(255,255,255,0.2);
     border-color: transparent;
 }
 
-/* Judul Resto Kecil di Navbar */
 .sticky-resto-name {
     font-size: 1.1rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-/* Memunculkan judul saat class 'visible' aktif */
 .sticky-resto-name.visible {
     opacity: 1 !important;
-}
-
-/* Agar header image tidak tertutup nav fixed, tapi tetep aesthetic */
-.headerImageOrder {
-    margin-top: 0; 
-}
-/* --- STICKY NAVBAR STYLE --- */
-
-/* Wrapper Navigasi Utama */
-.fixed-top-nav {
-    position: fixed; /* Kunci posisi di layar */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; /* Pastikan selalu di paling atas layer */
-    transition: all 0.3s ease-in-out; /* Efek transisi halus */
-    background: transparent; /* Awalnya transparan */
-}
-
-/* Class ini akan ditambahkan lewat JS saat di-scroll */
-.fixed-top-nav.scrolled {
-    background-color: var(--primary-orange); /* Berubah jadi oranye */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Kasih bayangan dikit */
-    padding-top: 10px !important; /* Sedikit dipadatkan */
-    padding-bottom: 10px !important;
-}
-
-/* Mengatur tombol saat di-scroll */
-.fixed-top-nav.scrolled .iconBtnOrder {
-    background: rgba(255,255,255,0.2);
-    border-color: transparent;
-}
-
-/* Judul Resto Kecil di Navbar */
-.sticky-resto-name {
-    font-size: 1.1rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-/* Memunculkan judul saat class 'visible' aktif */
-.sticky-resto-name.visible {
-    opacity: 1 !important;
-}
-
-/* Agar header image tidak tertutup nav fixed, tapi tetep aesthetic */
-.headerImageOrder {
-    margin-top: 0; 
 }
