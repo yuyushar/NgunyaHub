@@ -18,29 +18,33 @@ body {
     min-height: 100vh;
 }
 
+/* keep same fixed header height as beranda */
+body { padding-top: 70px; }
+
 /* === HEADER / NAVBAR === */
 .main-header {
     background-color: var(--header-rust);
-    padding: 25px 0;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    position: sticky; top: 0; z-index: 1000;
+    height: 70px;
+    padding: 0 24px;
+    margin-bottom: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
 }
 
 .header-container {
     width: 100%;
-    padding: 0 40px;
+    padding: 0 24px;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 40px;
+    justify-content: center; /* keep title centered */
+    min-height: 70px;
 }
 
-/* Tombol Kembali (Mepet Kiri) */
+/* Tombol Kembali */
 .back-link {
     position: absolute;
-    left: 40px;
+    left: 24px; 
     color: white;
     font-size: 16px;
     font-weight: 500;
@@ -50,56 +54,57 @@ body {
 }
 .back-link:hover { opacity: 0.8; }
 
-/* Judul Header (Poppins Regular) */
+/* Judul Header */
 .header-title {
     color: white;
-    font-family: 'Poppins', sans-serif; 
-    font-size: 36px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75 rem; 
+    font-weight: 700;  
+    letter-spacing: 0.2px;
+    text-transform: none;
     margin: 0;
-    line-height: 1;
+    line-height: 1.2;
+    text-align: center;
 }
 
 /* === LAYOUT UTAMA === */
 .main-container {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 20px auto 0 auto; 
     display: flex;
-    gap: 40px;
+    gap: 30px;
     align-items: flex-start;
-    padding: 0 20px 50px 20px;
+    padding: 0 20px 40px 20px;
 }
 
 /* === SIDEBAR KIRI === */
-.profile-sidebar { width: 280px; flex-shrink: 0; }
+.profile-sidebar { width: 240px; flex-shrink: 0; }
 
-.avatar-container { position: relative; width: 260px; height: 260px; margin-bottom: 16px; }
+.avatar-container { position: relative; width: 200px; height: 200px; margin-bottom: 14px; }
 .avatar { 
     width: 100%; height: 100%; object-fit: cover; border-radius: 50%; 
-    border: 5px solid var(--container-white); 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    border: 4px solid var(--container-white); 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.09); 
     background-color: #ddd; 
 }
 
-/* Ikon Kamera Bulat Sempurna */
+/* Ikon Kamera */
 .camera-icon {
-    position: absolute; bottom: 15px; left: 15px;
+    position: absolute; bottom: 12px; left: 12px;
     background: var(--primary-orange); color: white;
-    width: 45px; height: 45px; 
+    width: 42px; height: 42px; 
     border-radius: 50%; 
     display: flex; justify-content: center; align-items: center;
     cursor: pointer; border: 3px solid white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
     transition: transform 0.2s;
 }
 .camera-icon:hover { transform: scale(1.1); }
 .camera-icon i { font-size: 18px; }
 
-.names-wrapper { margin-bottom: 16px; }
-.names-wrapper h1 { font-size: 26px; font-weight: 700; color: var(--text-dark); }
-.username-handle { font-size: 16px; color: var(--text-muted); margin-top: 4px; }
+.names-wrapper { margin-bottom: 12px; text-align: left; }
+.names-wrapper h1 { font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+.username-handle { font-size: 14px; color: var(--text-muted); margin-top: 0; }
 
 .btn-block { display: flex; justify-content: center; width: 100%; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 15px; }
 .btn-outline { background-color: var(--container-white); border: 1px solid #d0d7de; color: var(--text-dark); transition: 0.2s; }
@@ -113,15 +118,15 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 34px;
 }
 
-/* 1. CONTAINER PUTIH */
+/* CONTAINER PUTIH */
 .profile-card-white {
     background-color: var(--container-white);
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
 }
 
 .content-header { border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 25px; }
@@ -146,7 +151,7 @@ input:not(:disabled):focus, textarea:not(:disabled):focus { outline: none; borde
 .btn-cancel-custom { background: white; border: 1px solid #ddd; color: #555; padding: 10px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
 .btn-cancel-custom:hover { background: #f5f5f5; color: #333; }
 
-/* 2. CONTAINER ORANYE (TOKO) */
+/* CONTAINER ORANYE (TOKO) */
 .merchant-invite-box {
     background-color: var(--header-rust);
     color: white;
@@ -174,7 +179,7 @@ input:not(:disabled):focus, textarea:not(:disabled):focus { outline: none; borde
 @media (max-width: 768px) {
     .header-container { flex-direction: row; align-items: center; justify-content: center; padding: 0 20px; gap: 0; }
     .back-link { position: absolute; left: 20px; color: white; font-size: 16px; font-weight: 500; margin-bottom: 0; }
-    .header-title { position: static; transform: none; align-self: center; font-size: 36px; }
+    .header-title { position: static; transform: none; align-self: center; font-size: 1.25rem; }
     
     .main-container { flex-direction: column; align-items: center; padding: 0 15px 40px 15px; }
     .profile-sidebar { width: 100%; max-width: 300px; text-align: center; margin-bottom: 30px; }
