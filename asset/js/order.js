@@ -144,7 +144,7 @@ const resto = {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKVSQPkZ_xvfI29DkLh7tVlAUOSVnOPxjbg&s",
       },
       {
-        id: 103,
+        id: 303,
         category: "drink",
         name: "Es Teh Manis",
         desc: "Teh manis segar.",
@@ -155,7 +155,7 @@ const resto = {
           "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80",
       },
       {
-        id: 104,
+        id: 304,
         category: "drink",
         name: "Es Jeruk Murni",
         desc: "Jeruk peras asli tanpa gula biang.",
@@ -165,7 +165,6 @@ const resto = {
         image:
           "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80",
       },
-
       {
         id: 303,
         category: "drink",
@@ -176,6 +175,240 @@ const resto = {
         likes: 20,
         image:
           "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=400&q=80",
+      },
+    ],
+  },
+  "siomay-pak-gyat": {
+    info: {
+      name: "SIOMAY & BATAGOR PAK GYAT",
+      bgImage:
+        "https://cdn0-production-images-kly.akamaized.net/ineYGN1ofC14lFFtuE5QVnjmxW8=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2834715/original/082188900_1561183059-shutterstock_1134726890.jpg",
+      closeTime: "20:00",
+      distance: "60 Menit",
+      isOpen: true,
+    },
+    menu: [
+      {
+        id: 401,
+        category: "food",
+        name: "Siomay Campur Komplit",
+        desc: "Isi siomay, tahu, kentang, pare, kol, telur. Bumbu kacang medok.",
+        price: 15000,
+        originalPrice: null,
+        likes: 120,
+        image:
+          "https://lelogama.go-jek.com/files/gofood/siomay%20setan%20pedas%20mampus.jpg",
+      },
+      {
+        id: 402,
+        category: "food",
+        name: "Batagor Kering",
+        desc: "Batagor digoreng garing dadakan. Kriuk maksimal.",
+        price: 15000,
+        originalPrice: 18000,
+        likes: 95,
+        image:
+          "https://awsimages.detik.net.id/community/media/visual/2022/01/24/food-spot-batagor-9.jpeg?w=650&q=90",
+      },
+      {
+        id: 403,
+        category: "food",
+        name: "Siomay Kuah",
+        desc: "Varian baru! Siomay dengan kuah kaldu ayam gurih.",
+        price: 17000,
+        originalPrice: null,
+        likes: 30,
+        image:
+          "https://i0.wp.com/resepkoki.id/wp-content/uploads/2016/04/Resep-Siomay-Kuah.jpg?fit=1265%2C1216&ssl=1",
+      },
+      {
+        id: 404,
+        category: "drink",
+        name: "Es Teh Kampul",
+        desc: "Es teh khas Solo dengan irisan jeruk nipis.",
+        price: 4000,
+        originalPrice: null,
+        likes: 200,
+        image:
+          "https://media.zcreators.id/crop/0x0:0x0/x/photo/indizone/2022/09/28/vWsnbzy/nangis-banget-cewek-ini-syok-beli-es-teh-tawar-harga-rp150-ribu-rasanya-b-aja23.jpg",
+      },
+      {
+        id: 405,
+        category: "drink",
+        name: "Es Jeruk Peras",
+        desc: "Segar dan bervitamin C.",
+        price: 6000,
+        originalPrice: null,
+        likes: 45,
+        image:
+          "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        id: 406,
+        category: "drink",
+        name: "Air Mineral",
+        desc: "Air putih dingin/biasa.",
+        price: 3000,
+        originalPrice: null,
+        likes: 10,
+        image:
+          "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=400&q=80",
+      },
+    ],
+  },
+  "mie-gacoan": {
+    info: {
+      name: "MIE GACOAN CAB. PABELAN",
+      bgImage:
+        "https://image.popbela.com/post/20241210/9bff6f365056ea93b5c1cba4db1658c8.png",
+      closeTime: "23:00",
+      distance: "5 Menit",
+      isOpen: true,
+    },
+    menu: [
+      {
+        id: 501,
+        category: "food",
+        name: "Mie Gacoan (Iblis)",
+        desc: "Mie pedas manis dengan pangsit goreng. Level 1-8.",
+        price: 11000,
+        originalPrice: null,
+        likes: 1500,
+        image:
+          "https://image.idntimes.com/post/20230202/327087876-728822605274628-8936677510746795867-n-08bb9dfacb5f1af6cf1542d92ddc72cc.jpg",
+      },
+      {
+        id: 502,
+        category: "food",
+        name: "Mie Hompimpa (Setan)",
+        desc: "Mie pedas asin gurih tanpa kecap manis. Level 1-8.",
+        price: 11000,
+        originalPrice: null,
+        likes: 1200,
+        image:
+          "https://images.tokopedia.net/img/JFrBQq/2024/3/18/972c5709-902a-4423-a414-fa167a71a197.png",
+      },
+      {
+        id: 503,
+        category: "food",
+        name: "Udang Keju",
+        desc: "Dimsum udang isi keju lumer. Isi 3 pcs.",
+        price: 10000,
+        originalPrice: 12000,
+        likes: 800,
+        image:
+          "https://buckets.sasa.co.id/v1/AUTH_Assets/Assets/p/website/medias/page_medias/resep_udang_keju_gacoan.jpg",
+      },
+      {
+        id: 504,
+        category: "drink",
+        name: "Es Teh Kampul",
+        desc: "Es teh khas Solo dengan irisan jeruk nipis.",
+        price: 4000,
+        originalPrice: null,
+        likes: 200,
+        image:
+          "https://media.zcreators.id/crop/0x0:0x0/x/photo/indizone/2022/09/28/vWsnbzy/nangis-banget-cewek-ini-syok-beli-es-teh-tawar-harga-rp150-ribu-rasanya-b-aja23.jpg",
+      },
+      {
+        id: 505,
+        category: "drink",
+        name: "Es Jeruk Peras",
+        desc: "Segar dan bervitamin C.",
+        price: 6000,
+        originalPrice: null,
+        likes: 45,
+        image:
+          "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        id: 506,
+        category: "drink",
+        name: "Air Mineral",
+        desc: "Air putih dingin/biasa.",
+        price: 3000,
+        originalPrice: null,
+        likes: 10,
+        image:
+          "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=400&q=80",
+      },
+    ],
+  },
+  "geprek-kumlot": {
+    info: {
+      name: "AYAM GEPREK KUMLOT",
+      bgImage:
+        "https://asset-2.tribunnews.com/travel/foto/bank/images/ilustrasi-ayam-geprek-di-solo.jpg",
+      closeTime: "21:30",
+      distance: "5 Menit",
+      isOpen: true,
+    },
+    menu: [
+      {
+        id: 601,
+        category: "food",
+        name: "Paket Geprek Original",
+        desc: "Nasi + Ayam Geprek + Lalapan. Sambal pedas nampol.",
+        price: 13000,
+        originalPrice: 15000,
+        likes: 560,
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-kq5T0usTEJsXH2GepC1B5T9_CBMh40EgvA&s",
+      },
+      {
+        id: 602,
+        category: "food",
+        name: "Paket Geprek Bakar",
+        desc: "Ayam geprek yang dibakar.",
+        price: 18000,
+        originalPrice: null,
+        likes: 340,
+        image:
+          "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/24c9d832-a846-491f-b945-0d81a7b39c43_menu-item-image_1747280996976.jpg",
+      },
+      {
+        id: 603,
+        category: "food",
+        name: "Jamur Crispy Geprek",
+        desc: "Jamur tiram goreng tepung digeprek sambal bawang.",
+        price: 10000,
+        originalPrice: null,
+        likes: 120,
+        image:
+          "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/44a3d095-e1bb-4f46-969d-5c70633d4099_Go-Biz_20231002_113745.jpeg",
+      },
+      {
+        id: 604,
+        category: "drink",
+        name: "Es Teh Jumbo",
+        desc: "Es teh manis ukuran gelas jumbo.",
+        price: 4000,
+        originalPrice: null,
+        likes: 800,
+        image:
+          "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        id: 605,
+        category: "drink",
+        name: "Es Milo",
+        desc: "Susu coklat Milo dingin kental.",
+        price: 6000,
+        originalPrice: null,
+        likes: 150,
+        image:
+          "https://dcostseafood.id/wp-content/uploads/2021/12/ES-MILO-1.jpg",
+      },
+      {
+        id: 606,
+        category: "drink",
+        name: "Es Nutrisari",
+        desc: "Nutrisari jeruk dingin.",
+        price: 4000,
+        originalPrice: null,
+        likes: 90,
+        image:
+          "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80",
       },
     ],
   },

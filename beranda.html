@@ -45,25 +45,39 @@
   </div>
 
   <div class="container mt-4">
-    <div class="tags mb-3 d-flex flex-wrap gap-2">
+    <div class="tags mb-3 d-flex flex-wrap gap-2 align-items-center">
       <div class="tag reset-tag bg-secondary">All</div>
+      
+      <div class="tag filter-special" id="btnNearest">
+        <i data-feather="map-pin" style="width:14px; margin-right:4px;"></i> Terdekat
+      </div>
+      <div class="tag filter-special" id="btnLiked">
+        <i data-feather="heart" style="width:14px; margin-right:4px;"></i> Disukai
+      </div>
+      
+      <div class="vr mx-1"></div>
+      
       <div class="tag">Sate</div>
       <div class="tag">Bakso</div>
       <div class="tag">Ayam Goreng</div>
       <div class="tag">Seafood</div>
-      <div class="tag">Kopi</div>
-      <div class="tag">Dessert</div>
+      <div class="tag">Mie</div>
+      <div class="tag">Siomay</div>
     </div>
 
-    <div class="grid">
-      <a href="order.html?resto=sate-madura" class="card" data-tags="sate tradisional open">
+    <div class="grid" id="restoGrid">
+      
+      <a href="order.html?resto=sate-madura" class="card" data-tags="sate tradisional open" data-time="10">
         <img src="https://img.inews.co.id/media/822/files/inews_new/2021/05/18/mencicipi_makanan_khas_indonesia.jpg" alt="Sate Madura">
         <div class="status open">OPEN</div>
         <div class="info">
           <h3>Resto Sate Khas Madura</h3>
+          <div class="meta-info">
+            <span class="time-badge"><i data-feather="clock"></i> 10 mnt</span>
+          </div>
           <div class="subtags">
-            <span class="subtag badge bg-success">Sate</span>
-            <span class="subtag badge bg-warning text-dark">Tradisional</span>
+            <span class="subtag badge">Sate</span>
+            <span class="subtag badge">Tradisional</span>
           </div>
           <div class="like-section">
             <div class="like-btn">
@@ -74,14 +88,17 @@
         </div>
       </a>
 
-      <a href="order.html?resto=bakso-cakman" class="card" data-tags="bakso pedas open">
+      <a href="order.html?resto=bakso-cakman" class="card" data-tags="bakso pedas open" data-time="15">
         <img src="https://cahayameat.com/wp-content/uploads/2022/09/resep-masakan-bakso-babi-1200x900.jpg" alt="Bakso">
         <div class="status open">OPEN</div>
         <div class="info">
           <h3>Bakso Cak Man</h3>
+          <div class="meta-info">
+            <span class="time-badge"><i data-feather="clock"></i> 15 mnt</span>
+          </div>
           <div class="subtags">
-            <span class="subtag badge bg-primary">Bakso</span>
-            <span class="subtag badge bg-danger">Pedas</span>
+            <span class="subtag badge">Bakso</span>
+            <span class="subtag badge">Pedas</span>
           </div>
           <div class="like-section">
             <div class="like-btn">
@@ -92,19 +109,85 @@
         </div>
       </a>
 
-      <a href="order.html?resto=seafood-maknyoss" class="card" data-tags="seafood kepiting closed">
+      <a href="order.html?resto=seafood-maknyoss" class="card" data-tags="seafood kepiting closed" data-time="25">
         <img src="https://images.tokopedia.net/blog-tokopedia-com/uploads/2021/06/makanan.jpg" alt="Seafood">
         <div class="status closed">CLOSED</div>
         <div class="info">
           <h3>Seafood Mak Nyoss</h3>
+          <div class="meta-info">
+            <span class="time-badge"><i data-feather="clock"></i> 25 mnt</span>
+          </div>
           <div class="subtags">
-            <span class="subtag badge bg-info text-dark">Seafood</span>
-            <span class="subtag badge bg-dark">Kepiting</span>
+            <span class="subtag badge">Seafood</span>
+            <span class="subtag badge">Kepiting</span>
           </div>
           <div class="like-section">
             <div class="like-btn">
               <i data-feather="heart"></i>
               <span class="like-count">67</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="order.html?resto=siomay-pak-gyat" class="card" data-tags="siomay batagor cemilan open" data-time="60">
+        <img src="https://cdn0-production-images-kly.akamaized.net/ineYGN1ofC14lFFtuE5QVnjmxW8=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2834715/original/082188900_1561183059-shutterstock_1134726890.jpg" alt="Siomay Pak Gyat">
+        <div class="status open">OPEN</div>
+        <div class="info">
+          <h3>Siomay & Batagor Pak Gyat</h3>
+          <div class="meta-info">
+            <span class="time-badge"><i data-feather="clock"></i> 60 mnt</span>
+          </div>
+          <div class="subtags">
+            <span class="subtag badge">Siomay</span>
+            <span class="subtag badge">Batagor</span>
+          </div>
+          <div class="like-section">
+            <div class="like-btn">
+              <i data-feather="heart"></i>
+              <span class="like-count">45</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="order.html?resto=mie-gacoan" class="card" data-tags="mie pedas dimsum open" data-time="5">
+        <img src="https://image.popbela.com/post/20241210/9bff6f365056ea93b5c1cba4db1658c8.png" alt="Mie Gacoan">
+        <div class="status open">OPEN</div>
+        <div class="info">
+          <h3>Mie Gacoan Cab. Pabelan</h3>
+          <div class="meta-info">
+            <span class="time-badge highlight"><i data-feather="clock"></i> 5 mnt</span>
+          </div>
+          <div class="subtags">
+            <span class="subtag badge">Mie</span>
+            <span class="subtag badge">Pedas</span>
+          </div>
+          <div class="like-section">
+            <div class="like-btn">
+              <i data-feather="heart"></i>
+              <span class="like-count">889</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="order.html?resto=geprek-kumlot" class="card" data-tags="ayam goreng geprek pedas open" data-time="5">
+        <img src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/c3445a4e-a047-463a-8418-ca724375a7ad_b45d19c7-01ca-483c-a820-d98b39aa1546.jpg" alt="Ayam Geprek Kumlot">
+        <div class="status open">OPEN</div>
+        <div class="info">
+          <h3>Ayam Geprek Kumlot</h3>
+          <div class="meta-info">
+            <span class="time-badge highlight"><i data-feather="clock"></i> 5 mnt</span>
+          </div>
+          <div class="subtags">
+            <span class="subtag badge">Ayam goreng</span>
+            <span class="subtag badge">Geprek</span>
+          </div>
+          <div class="like-section">
+            <div class="like-btn">
+              <i data-feather="heart"></i>
+              <span class="like-count">230</span>
             </div>
           </div>
         </div>
