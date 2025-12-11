@@ -119,16 +119,16 @@ header {
 
 @media (max-width: 768px) {
   header {
+    display: flex;
     justify-content: space-between;
     position: fixed;
   }
 
   .logo {
+    margin-left: 0 !important;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+    transform: translate(-50%);
   }
 
   .mobile-search-trigger {
