@@ -1,8 +1,3 @@
-function showSignup() {
-    clearSignupFields();
-    document.getElementById('loginBox').style.display = 'none';
-    document.getElementById('signupBox').style.display = 'block';
-}
 function clearSignupFields() {
     document.getElementById("email").value = "";
     document.getElementById("newUser").value = "";
@@ -10,14 +5,23 @@ function clearSignupFields() {
     document.getElementById("confirmPass").value = "";
 }
 
-function showLogin() {
-    document.getElementById('signupBox').style.display = 'none';
-    document.getElementById('loginBox').style.display = 'block';
+function showSignup() {
+    clearSignupFields();
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('signupBox').style.display = 'block';
 }
+
 function clearLoginFields() {
     document.getElementById("loginUser").value = "";
     document.getElementById("loginPass").value = "";
 }
+
+function showLogin() {
+    clearLoginFields();
+    document.getElementById('signupBox').style.display = 'none';
+    document.getElementById('loginBox').style.display = 'block';
+}
+
 function signup() {
     let email = document.getElementById("email").value;
     let user = document.getElementById("newUser").value;
@@ -32,6 +36,11 @@ function signup() {
 
     if (!emailPattern.test(email)) {
         msg.textContent = "Format email tidak valid!";
+        return;
+    }
+
+    if (!user.trim()) {
+        msg.textContent = "Username tidak boleh kosong!";
         return;
     }
 
@@ -64,7 +73,6 @@ function login() {
     let user = document.getElementById("loginUser").value;
     let pass = document.getElementById("loginPass").value;
     let msg = document.getElementById("loginMsg");
-    msg.style.color = "red";
 
     let storedUser = sessionStorage.getItem("username");
     let storedPass = sessionStorage.getItem("password");
@@ -78,8 +86,10 @@ function login() {
     } else {
         msg.style.color = "red";
         msg.textContent = "Username atau password salah!";
+        document.getElementById("loginPass").value = "";
     }
 }
+
 
 function togglePassword(id, eyeIcon) {
     let field = document.getElementById(id);
